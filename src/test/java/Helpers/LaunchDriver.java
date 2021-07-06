@@ -1,6 +1,10 @@
 package Helpers;
 
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -18,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -26,6 +31,8 @@ import org.testng.annotations.BeforeMethod;
 public class LaunchDriver {
 
 	String reportPath;
+	public ExtentReports report;
+	// ExtentTest test;
 
 	public String getReportPath() {
 		return reportPath;
@@ -46,22 +53,31 @@ public class LaunchDriver {
 	}
 
 //	@BeforeTest
-//	@Parameters({"browser" ,"URL"})
-//	public void beforeSuite(String browser,String URL) {
-//		driver=WebdriverFactory.getDriverInstance(browser,URL);
-//		ControlHelpers controlHelpers=new ControlHelpers(driver);
-//		reportPath=Screenshots.getreportName();
+//	@Parameters({ "browser", "URL" })
+//	public void beforeTest(String browser, String URL) {
+//		driver = WebdriverFactory.getDriverInstance(browser, URL);
+//		ControlHelpers controlHelpers = new ControlHelpers(driver);
+//		reportPath = Screenshots.getreportName();
 //		setReportPath(reportPath);
-//		
+//
+//		report = ExtentFactory.getInstance();
 //	}
 //
 //	@AfterTest
 //	public void afterSuite() {
-//		
+//		report.flush();
+//
 //		driver.close();
 //		driver.quit();
-//		
+//
 //	}
+	
+	@BeforeTest
+	public void beforeTest() {
+
+		report = ExtentFactory.getInstance();
+	}
+
 	@Parameters({ "browser", "URL" })
 	@BeforeMethod
 	public void beforeMethod(String browser, String URL) {
@@ -73,8 +89,8 @@ public class LaunchDriver {
 
 	@AfterMethod
 	public void afterMethod() {
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 
 	}
 
@@ -96,9 +112,9 @@ public class LaunchDriver {
 			System.out.println("screenshots folder is added created");
 		}
 
-		Path report_path = Paths.get(System.getProperty("user.dir") + "//Reports//report-demo.html");
+		Path report_path = Paths.get(System.getProperty("user.dir") + "//Reports//report.html");
 		if (Files.exists(report_path)) {
-			String fileName = System.getProperty("user.dir") + "//Reports//report-demo.html";
+			String fileName = System.getProperty("user.dir") + "//Reports//report.html";
 			File file = new File(fileName);
 			String time = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(getCreationTime(file).toMillis());
 			time = time.replaceAll(" ", "_").replaceAll("/", "_").replace(":", "_");

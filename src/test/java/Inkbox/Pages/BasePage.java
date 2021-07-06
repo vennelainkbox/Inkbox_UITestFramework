@@ -2,6 +2,7 @@ package Inkbox.Pages;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -16,10 +17,13 @@ public class BasePage {
 	public BasePage(ExtentTest test) {
 
 		this.test = test;
+		ControlHelpers controlHelpers = new ControlHelpers(test);
 	}
 
 	// local veriables
 	String searchtext;
+	String presentUrl;
+	String previousUrl;
 
 	// search items
 	String SortBy = "//button[@id='options-menu']";
@@ -29,6 +33,13 @@ public class BasePage {
 	String Rewards = "//*[@id=\"header-rewards\"]/a[text()='Rewards']";
 	String Help = "//div[@id='header-help']/button/span[text()='Help']";
 	String Login_Button = "//*[@id='header-user']/button";
+
+	// profile
+	String YourProfile = "//div[@id='header-user']/descendant::a[contains(text(),'Your Profile')]";
+	String UserImage = "//div[@id='profile']/descendant::div/img";
+	String ChangePhoto = "//div[@id='profile']/descendant::p/label";
+	String ChangePassword = "//div[@id='profile']/descendant::a[text()='Change Password']";
+	String Logout = "//button[text()='Logout']";
 
 	// Menu Items
 	String Shop = "//div[@id='nav-links']/div/a[contains(text(),'Shop')]";
@@ -69,7 +80,7 @@ public class BasePage {
 	public void AcctountIcon() {
 		try {
 			ControlHelpers.ButtonClick(By.xpath(Login_Button));
-			test.log(LogStatus.INFO, "Clicked on Account Icon");
+		//	test.log(LogStatus.INFO, "Clicked on Account Icon");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.fillInStackTrace());
@@ -77,7 +88,7 @@ public class BasePage {
 		}
 
 	}
-	
+
 	public void Click_On_Shop() {
 		ControlHelpers.ButtonClick(By.xpath(Shop));
 	}
@@ -98,7 +109,6 @@ public class BasePage {
 			String expecstring = webElement.getText();
 			if (expecstring.contains(searchtext)) {
 				test.log(LogStatus.INFO, expecstring + " : is validated");
-				// System.out.println(webElement.getText());
 			} else {
 				test.log(LogStatus.ERROR, expecstring + " : is validated");
 			}
@@ -107,9 +117,110 @@ public class BasePage {
 
 	}
 
-	public String VerifyAccount() {
-		String account_buttonText = ControlHelpers.getText(By.xpath(Login_Button));
+	public  boolean VerifyAccountLogin() {
+		
+//		String account_buttonText=ControlHelpers.WaitForElementAndGetText(By.xpath(Login_Button));
+//		return account_buttonText;
+		
+		return ControlHelpers.IsElementVisible(By.xpath(Login_Button));
 
-		return account_buttonText;
+	}
+
+	public void VerifyUserImage() {
+		ClickOnMyAccount();
+		ClickOnYourProfile();
+		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePhoto));
+		System.out.println("Icon displayed :" + visiblility);
+		if (!visiblility) {
+			test.log(LogStatus.ERROR, "User image (Inkbucks) are not displayed in profile after login");
+
+		} else {
+			test.log(LogStatus.PASS, "User image (Inkbucks) are displayed in profile after login");
+		}
+	}
+
+	public void Logout() {
+		ClickOnMyAccount();
+		ClickOnYourProfile();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ControlHelpers.JavaScriptExecutor_Button_Click(By.xpath(Logout));
+	}
+
+	public void verifyChangePassword() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePassword));
+		// System.out.println("Change password :"+visiblility);
+		if (!visiblility) {
+			test.log(LogStatus.ERROR, "Change Password is not verified");
+
+		} else {
+			test.log(LogStatus.PASS, "Change Password is  verified");
+		}
+	}
+
+	public void validate_SearchBox_Acceptence() {
+		EnterTextInsearchBox("Test@product1");
+		String textboxtext = ControlHelpers.getTextBox_Text(By.xpath(Search_textbox));
+		if (textboxtext.equalsIgnoreCase("Test@product1")) {
+			test.log(LogStatus.PASS, "SearchBox accepting character,number and special character");
+		} else {
+			test.log(LogStatus.ERROR, "SearchBox not accepting character,number and special character");
+		}
+		// System.out.println("TextBox text :"+textboxtext);
+
+	}
+
+	public void ClickOnMyAccount() {
+		ControlHelpers.ButtonClick(By.xpath(Login_Button));
+	}
+
+	public void ClickOnYourProfile() {
+		ControlHelpers.ButtonClick(By.xpath(YourProfile));
+
+	}
+
+	public void Validate_PresentURL_With_PreviousURL() {
+
+		Click_On_Shop();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		presentUrl = ControlHelpers.GetDriver().getCurrentUrl();
+		// test.log(LogStatus.INFO, "Present URL :"+presentUrl);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ControlHelpers.GetDriver().navigate().back();
+		previousUrl = ControlHelpers.GetDriver().getCurrentUrl();
+		// test.log(LogStatus.INFO, "Previous URL :"+previousUrl);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ControlHelpers.GetDriver().navigate().forward();
+		if (presentUrl.equalsIgnoreCase(ControlHelpers.GetDriver().getCurrentUrl())) {
+			test.log(LogStatus.PASS, "Navigate to Present Url after get back to previous Url");
+		} else {
+			test.log(LogStatus.ERROR, "Unnable to Navigate to Present Url after get back to previous Url");
+			Assert.fail();
+		}
+
 	}
 }

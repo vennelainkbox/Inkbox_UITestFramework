@@ -26,16 +26,24 @@ public class Base {
 	public static void main(String[] args) throws IOException {
 
 		
-//		ArrayList<Integer> integers = new ArrayList<Integer>();
-//
-//		integers.add(1);
-//		integers.add(2);
-//		integers.add(3);
-//
-//		integers.add(4);
-//		integers.add(6);
-//		integers.add(5);
-//
+		ArrayList<Double> integers = new ArrayList<Double>();
+
+		integers.add((double)1.2);
+		integers.add((double) 2);
+		integers.add((double) 3.5);
+		integers.add((double) 3);
+		integers.add((double) 4);
+		integers.add((double) 6);
+		integers.add((double) 5);
+	for (int i = 0; i < integers.size() - 1; i++) {
+		
+		if (integers.get(i) > integers.get(i + 1)) {
+			System.out.println("false :" + integers.get(i));
+		}
+	}
+
+		
+		
 //		for (int i = 0; i < integers.size() - 1; i++) {
 //			// integers.get(i);
 //			if (integers.get(i) > integers.get(i + 1)) {

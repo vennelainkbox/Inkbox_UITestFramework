@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentTest;
@@ -14,49 +15,34 @@ import Helpers.ControlHelpers;
 import Helpers.ExtentFactory;
 import Helpers.LaunchDriver;
 import Helpers.Screenshots;
+import Helpers.WebdriverFactory;
+import Inkbox.Pages.Ads;
 import Inkbox.Pages.BasePage;
 import Inkbox.Pages.LoginPage;
 import Inkbox.Pages.ProductsPage;
 
-public class ProductSearchTest extends LaunchDriver {
+public class HomePageTest extends LaunchDriver {
 	ExtentTest test;
+	ProductsPage productspage;
 	
+	LoginPage loginPage;
 	
 	@Test(priority = 0)
-	public void Autosuggestion_Validation() {
+	public void ValidateUserImage_Changepassword() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		BasePage basePage=new BasePage(test);
-		basePage.validate_SearchBox_Acceptence();
-		basePage.EnterTextInsearchBox("butterfly");
-		basePage.AutoSuggestValidation();
-		
+		basePage.VerifyUserImage();
+		basePage.verifyChangePassword();
 	}
 	
 	@Test(priority = 1)
-	public void SortByPriceLowToHigh() {
+	public void ProductsDisplayed_are_Clicable_And_Move_To_PDP() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		ProductsPage productspage = new ProductsPage(test);
-		productspage.SortByLowToHigh();
-		productspage.ValidatePriceLowToHigh();
-	}
-	
-	@Test(priority = 2)
-	public void SortBySize() {
-		LoginPage loginPage = new LoginPage(test);
-		loginPage.UserLogin();
-		ProductsPage productspage = new ProductsPage(test);
-		productspage.SortBySize();
-	}
-	
-	
-	@Test(priority = 3)
-	public void ValidatePresentUrl_with_PreviousUrl() {
-		LoginPage loginPage = new LoginPage(test);
-		loginPage.UserLogin();
-		BasePage basePage=new BasePage(test);
-		basePage.Validate_PresentURL_With_PreviousURL();
+		
+		productspage = new ProductsPage(test);
+		productspage.Validate_Products_displayed_clickable();
 	}
 	
 	@BeforeMethod
@@ -64,10 +50,12 @@ public class ProductSearchTest extends LaunchDriver {
 
 		
 		report = ExtentFactory.getInstance();
+		
 		System.out.println(result.getMethod().getMethodName());
 		test = report.startTest(result.getMethod().getMethodName());
 		
 	}
+	
 	@AfterMethod
 	public void AfterMethod(ITestResult result) throws IOException
 	{
@@ -80,8 +68,6 @@ public class ProductSearchTest extends LaunchDriver {
 		}
 		report.endTest(test);
 		report.flush();
+		
 	}
-	
-	
-	
 }

@@ -1,17 +1,17 @@
 package Inkbox.Tests;
 
-
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.Test;
 
-import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -19,129 +19,78 @@ import Helpers.ControlHelpers;
 import Helpers.ExtentFactory;
 import Helpers.LaunchDriver;
 import Helpers.Screenshots;
-import Inkbox.Pages.*;
+import Helpers.WebdriverFactory;
+import Inkbox.Pages.Ads;
+import Inkbox.Pages.BasePage;
+import Inkbox.Pages.LoginPage;
 
 public class LoginTest extends LaunchDriver {
-	WebDriver Webdriver;
-
-	LoginPage loginPage;
-	BasePage basePage;
-	ExtentReports report;
+	
 	ExtentTest test;
 	
 	
-	public void TestDirectUserLogin() {
-		UserLogin();
-		ValidateMyAccount();
+	
+	
+
+	@Test(priority = 0)
+	public void LoginWithDirectUser() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		Loginvalidation();
+		
+		
+	}
+	@Test(priority = 2)
+	public void LoginWithGoogle() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin_With_Google();
+		Loginvalidation();
+		
+	}
+	
+	@Test(priority = 1)
+	public void LoginWithFacebook() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin_With_FaceBook();
+		Loginvalidation();
 	}
 	
 
-	
-	public void TestGoogleUserLogin() {
-		UserLogin_With_Google();
-		ValidateMyAccount();
-		
-	}
-	@Test
-	public void TestFacebookUserLogin() {
-		UserLogin_With_FaceBook();
-		ValidateMyAccount();
-	}
-	
-	public void ValidateMyAccount() {
+	public void Loginvalidation() {
 		BasePage basePage=new BasePage(test);
-		String accountText=basePage.VerifyAccount();
-		if(accountText.contains("My Account"))
+		boolean userLogin=basePage.VerifyAccountLogin();
+		if(userLogin)
 		{
-			System.out.println(accountText);
-			test.log(LogStatus.PASS, accountText);
+			test.log(LogStatus.PASS, "Login Success");
 		}
 		else
 		{
-			System.out.println(accountText);
-			test.log(LogStatus.ERROR, accountText);
+			test.log(LogStatus.FAIL, "Login fail");
+			Assert.fail("Login fail");
 		}
 	}
+	
+	@BeforeMethod
+	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
-	public void UserLogin() {
 		
-
-		try {
-			Ads ads = new Ads(test);
-			ads.closeAd();
-			basePage = new BasePage(test);
-			basePage.AcctountIcon();
-			loginPage = new LoginPage();
-			loginPage.ClickLogin_link();
-			loginPage.EnterEmail("testinkbox@gmail.com");
-			loginPage.EnterPassword("Test@123");
-			loginPage.ClickLoginButton();
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.fillInStackTrace());
-		}
-
-	}
-	
-	
-	public  void UserLogin_With_Google() {
-		try {
-			Ads ads = new Ads(test);
-			ads.closeAd();
-			basePage = new BasePage(test);
-			basePage.AcctountIcon();
-			loginPage = new LoginPage();
-			loginPage.ClickContinue_With_google();
-			loginPage.EnterGoogle_MailID("testinkbox@gmail.com");
-			loginPage.EnterGoogle_Password("Inkbox!123");
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.fillInStackTrace());
-		}
-
-	}
-	
-	public  void UserLogin_With_FaceBook() {
-		try {
-			Ads ads = new Ads(test);
-			ads.closeAd();
-			basePage = new BasePage(test);
-			basePage.AcctountIcon();
-			loginPage = new LoginPage();
-			loginPage.ClickContinue_With_facebook();
-			loginPage.EnterEmail_facebook("testinkbox@gmail.com");
-			loginPage.EnterPassword_facebook("Inkbox!123");
-			loginPage.Click_On_Login_facebook();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.fillInStackTrace());
-		}
-
-	}
-	
-	
-	@BeforeClass
-	public void beforeClass()
-	{
 		report = ExtentFactory.getInstance();
-		test = report.startTest("User Login");
-	}
-	
-	@AfterClass
-	public void afterClass() {
-		report.endTest(test);
-		report.flush();
+		System.out.println(result.getMethod().getMethodName());
+		test = report.startTest(result.getMethod().getMethodName());
+		
 	}
 	@AfterMethod
-	public void beforeTest(ITestResult testResult) throws IOException {
-		if (testResult.getStatus() == ITestResult.FAILURE) {
-			String path = Screenshots.takeScreenshot(getDriver(), testResult.getName());
+	public void AfterMethod(ITestResult result) throws IOException
+	{
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
 			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
+			System.out.println(result.getThrowable());
+			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
+			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
 		}
-		
+		report.endTest(test);
+		report.flush();
 	}
 
 }

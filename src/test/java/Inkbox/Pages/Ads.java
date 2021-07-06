@@ -19,6 +19,7 @@ public class Ads extends Helpers.LaunchDriver {
 	public Ads(ExtentTest test) {
 
 		this.test = test;
+		ControlHelpers controlHelpers=new ControlHelpers(test);
 	}
 
 	//String ad = "(//button[contains(text(),'×')])[1]";
@@ -33,7 +34,7 @@ public class Ads extends Helpers.LaunchDriver {
 			//ControlHelpers.ButtonClick(By.xpath(ad));
 			ControlHelpers.ButtonClickJavaScriptExecutor_AddButton(By.xpath(ad));
 		
-			test.log(LogStatus.INFO, "Add is Closed");
+//			test.log(LogStatus.INFO, "Add is Closed");
 
 		
 

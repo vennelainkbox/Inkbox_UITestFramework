@@ -12,7 +12,7 @@ public class ExtentFactory {
 //		LaunchDriver launchDriver=new LaunchDriver();
 		
 		ExtentReports extent;
-		String Path=System.getProperty("user.dir")+"//Reports//report-demo.html";
+		String Path=System.getProperty("user.dir")+"//Reports//report.html";
 		//String Path = "//Users//atomar//Desktop//report-demo.html";
 		extent = new ExtentReports(Path, false);
 		
