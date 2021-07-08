@@ -8,30 +8,15 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="URL" value="https://inkbox.com"/>
     <classes>
-      <class name="Inkbox.Tests.AddToCartTest">
-        <methods>
-          <include name="beforeMethod"/>
-          <include name="LoginAndValidateItemIncart"/>
-          <include name="beforeClass"/>
-          <include name="afterClass"/>
-          <include name="Logout_VerifyCart"/>
-          <include name="beforeSuite"/>
-          <include name="beforeTest"/>
-          <include name="RemoveItems"/>
-          <include name="IncreamentProduct"/>
-          <include name="afterMethod"/>
-          <include name="beforeTest"/>
-        </methods>
-      </class> <!-- Inkbox.Tests.AddToCartTest -->
       <class name="Inkbox.Tests.LoginTest">
         <methods>
-          <include name="beforeMethod"/>
           <include name="LoginWithFacebook"/>
           <include name="AfterMethod"/>
-          <include name="BeforeMethod"/>
+          <include name="beforeMethod"/>
           <include name="beforeSuite"/>
-          <include name="afterMethod"/>
+          <include name="BeforeMethod"/>
           <include name="beforeTest"/>
+          <include name="afterMethod"/>
         </methods>
       </class> <!-- Inkbox.Tests.LoginTest -->
     </classes>

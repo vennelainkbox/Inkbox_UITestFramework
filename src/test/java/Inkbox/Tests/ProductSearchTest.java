@@ -43,6 +43,14 @@ public class ProductSearchTest extends LaunchDriver {
 	}
 	
 	@Test(priority = 2)
+	public void Verify_SearchResults() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		ProductsPage productspage = new ProductsPage(test);
+		productspage.Verify_Number_of_Searchresults();
+	}
+	
+	@Test(priority = 3)
 	public void SortBySize() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -51,12 +59,20 @@ public class ProductSearchTest extends LaunchDriver {
 	}
 	
 	
-	@Test(priority = 3)
+	@Test(priority = 4)
 	public void ValidatePresentUrl_with_PreviousUrl() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		BasePage basePage=new BasePage(test);
 		basePage.Validate_PresentURL_With_PreviousURL();
+	}
+	
+	@Test(priority = 5)
+	public void ValidatePricingBlock() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		ProductsPage productspage = new ProductsPage(test);
+		productspage.Validating_PricingBlock();
 	}
 	
 	@BeforeMethod

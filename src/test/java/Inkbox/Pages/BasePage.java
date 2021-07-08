@@ -1,5 +1,10 @@
 package Inkbox.Pages;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.junit.Assert;
@@ -10,6 +15,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Helpers.ControlHelpers;
+import Helpers.LaunchDriver;
 
 public class BasePage {
 	ExtentTest test;
@@ -39,6 +45,12 @@ public class BasePage {
 	String UserImage = "//div[@id='profile']/descendant::div/img";
 	String ChangePhoto = "//div[@id='profile']/descendant::p/label";
 	String ChangePassword = "//div[@id='profile']/descendant::a[text()='Change Password']";
+	String OldPassword = "//input[@id='currentPassword']";
+	String NewPassword = "//input[@id='newPassword']";
+	String Confirmpassword = "//input[@id='confirmPassword']";
+	String Save = "//button[text()='Save']";
+	String succesMsg = "//div[@x-show='showAlert']/descendant::h3[contains(text(),'Success')]";
+
 	String Logout = "//button[text()='Logout']";
 
 	// Menu Items
@@ -80,7 +92,7 @@ public class BasePage {
 	public void AcctountIcon() {
 		try {
 			ControlHelpers.ButtonClick(By.xpath(Login_Button));
-		//	test.log(LogStatus.INFO, "Clicked on Account Icon");
+			// test.log(LogStatus.INFO, "Clicked on Account Icon");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.fillInStackTrace());
@@ -94,9 +106,16 @@ public class BasePage {
 	}
 
 	public void EnterTextInsearchBox(String searchProduct) {
+
 		searchtext = searchProduct;
 		ControlHelpers.ButtonClick(By.xpath(Search_textbox));
 		ControlHelpers.Entertext(By.xpath(Search_textbox), searchProduct);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		test.log(LogStatus.INFO, "Searching for :" + searchProduct);
 
 	}
@@ -117,26 +136,74 @@ public class BasePage {
 
 	}
 
-	public  boolean VerifyAccountLogin() {
-		
+	public boolean VerifyAccountLogin() {
+
 //		String account_buttonText=ControlHelpers.WaitForElementAndGetText(By.xpath(Login_Button));
 //		return account_buttonText;
-		
+
 		return ControlHelpers.IsElementVisible(By.xpath(Login_Button));
 
 	}
 
-	public void VerifyUserImage() {
+	public void VerifyUserImage_Is_Changing_Or_Not() throws AWTException, InterruptedException {
 		ClickOnMyAccount();
 		ClickOnYourProfile();
-		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePhoto));
-		System.out.println("Icon displayed :" + visiblility);
-		if (!visiblility) {
-			test.log(LogStatus.ERROR, "User image (Inkbucks) are not displayed in profile after login");
+		
+		System.out.println("Image present :"+ControlHelpers.IsElementVisible(By.xpath("//form[@id='profile_form']/descendant::img")));
+		ControlHelpers.ButtonClick(By.xpath(ChangePhoto));
 
-		} else {
-			test.log(LogStatus.PASS, "User image (Inkbucks) are displayed in profile after login");
-		}
+		Thread.sleep(3000);
+		String driverpath = System.getProperty("user.dir");
+		StringSelection ss = new StringSelection(driverpath + "\\Resources\\inkboxImage1.jpg");
+	
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+		// Ctrl + v
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(3000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+
+		Thread.sleep(5000);
+
+
+		
+		Thread.sleep(3000);
+		ControlHelpers.ButtonClick(By.xpath(ChangePhoto));
+
+		Thread.sleep(3000);
+		StringSelection ss2 = new StringSelection(driverpath + "\\Resources\\inkboxImage2.jpg");
+	
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss2, null);
+
+		// Ctrl + v
+		Robot robot2 = new Robot();
+		robot2.keyPress(KeyEvent.VK_CONTROL);
+		robot2.keyPress(KeyEvent.VK_V);
+		robot2.keyRelease(KeyEvent.VK_V);
+		robot2.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(3000);
+		robot2.keyPress(KeyEvent.VK_ENTER);
+		robot2.keyRelease(KeyEvent.VK_ENTER);
+
+		Thread.sleep(5000);
+
+//		String src2 = ControlHelpers.GetDriver().findElement(By.xpath("//form[@id='profile_form']/descendant::img"))
+//				.getAttribute("src");
+//		System.out.println("second img :"+src2);
+
+//		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePhoto));
+//		System.out.println("Icon displayed :" + visiblility);
+//		if (!visiblility) {
+//			test.log(LogStatus.ERROR, "User image (Inkbucks) are not displayed in profile after login");
+//
+//		} else {
+//			test.log(LogStatus.PASS, "User image (Inkbucks) are displayed in profile after login");
+//		}
 	}
 
 	public void Logout() {
@@ -152,23 +219,64 @@ public class BasePage {
 	}
 
 	public void verifyChangePassword() {
+		ClickOnMyAccount();
+		ClickOnYourProfile();
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePassword));
-		// System.out.println("Change password :"+visiblility);
-		if (!visiblility) {
-			test.log(LogStatus.ERROR, "Change Password is not verified");
 
-		} else {
-			test.log(LogStatus.PASS, "Change Password is  verified");
+		ControlHelpers.MoveToElementAndClick(By.xpath(ChangePassword));
+
+		String oldpassword = LaunchDriver.getPassword();
+		String oldpasswordText = null;
+		String newpasswordtext = null;
+
+		if (oldpassword.equalsIgnoreCase("Test@123")) {
+
+			LaunchDriver.setPassword("Test@1234");
+			oldpasswordText = "Test@123";
+			newpasswordtext = "Test@1234";
+			LaunchDriver.setpassword_configFile(newpasswordtext);
+		} else if (oldpassword.equalsIgnoreCase("Test@1234")) {
+			LaunchDriver.setPassword("Test@123");
+			oldpasswordText = "Test@1234";
+			newpasswordtext = "Test@123";
+			LaunchDriver.setpassword_configFile(newpasswordtext);
 		}
+
+		ControlHelpers.Entertext(By.xpath(OldPassword), oldpasswordText);
+		ControlHelpers.Entertext(By.xpath(NewPassword), newpasswordtext);
+		ControlHelpers.Entertext(By.xpath(Confirmpassword), newpasswordtext);
+		ControlHelpers.ButtonClick(By.xpath(Save));
+
+		boolean status = ControlHelpers.IsElementVisible(By.xpath(succesMsg));
+		if (status) {
+			test.log(LogStatus.PASS, "Password changed succesfully to :" + newpasswordtext);
+		} else {
+			test.log(LogStatus.ERROR, "Unnable to change password");
+			Assert.fail("Unnable to change password");
+		}
+
+//		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePassword));
+//		
+//		if (!visiblility) {
+//			test.log(LogStatus.ERROR, "Change Password is not verified");
+//
+//		} else {
+//			test.log(LogStatus.PASS, "Change Password is  verified");
+//		}
 	}
 
 	public void validate_SearchBox_Acceptence() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		EnterTextInsearchBox("Test@product1");
 		String textboxtext = ControlHelpers.getTextBox_Text(By.xpath(Search_textbox));
 		if (textboxtext.equalsIgnoreCase("Test@product1")) {

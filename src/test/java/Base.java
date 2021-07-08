@@ -1,59 +1,79 @@
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributeView;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.nio.file.attribute.FileTime;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.Properties;
 
-import javax.print.attribute.IntegerSyntax;
-
-import org.apache.commons.lang3.ArrayUtils;
-import org.openqa.selenium.By;
-
-import Inkbox.Pages.ProductsPage;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 
 public class Base {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ConfigurationException {
 
-		
-		ArrayList<Double> integers = new ArrayList<Double>();
-
-		integers.add((double)1.2);
-		integers.add((double) 2);
-		integers.add((double) 3.5);
-		integers.add((double) 3);
-		integers.add((double) 4);
-		integers.add((double) 6);
-		integers.add((double) 5);
-	for (int i = 0; i < integers.size() - 1; i++) {
-		
-		if (integers.get(i) > integers.get(i + 1)) {
-			System.out.println("false :" + integers.get(i));
-		}
-	}
-
-		
-		
-//		for (int i = 0; i < integers.size() - 1; i++) {
-//			// integers.get(i);
-//			if (integers.get(i) > integers.get(i + 1)) {
-//				System.out.println("false :" + integers.get(i));
-//			}
+//		FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"//config.properties");
+//		Properties prop=new Properties();
+//		prop.load(file);
+//		
+//		System.out.println(prop.getProperty("username"));
+//		System.out.println(prop.getProperty("password"));
+//		
+//		prop.setProperty("password", "Test@1234");
+//		
 //
-//		}
+//		System.out.println(prop.getProperty("password"));
 		
+//		PropertiesConfiguration config=null;
+//		
+//		try {
+//			 config = new PropertiesConfiguration(System.getProperty("user.dir")+"//config.properties");
+//			config.setProperty("password", "Test@123");
+//			config.save();
+//		} catch (ConfigurationException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println(config.getProperties("password"));
 		
 
+//		//to update properties file
+//		Properties props = new Properties();
+//		try {
+//		      //first load old one:
+//		      FileInputStream configStream = new FileInputStream(System.getProperty("user.dir")+"//config.properties");
+//		      props.load(configStream);
+//		      configStream.close();
+//
+//		      //modifies existing or adds new property
+//		      props.setProperty("password", "Test@1234");
+//
+//		      //save modified property file
+//		      FileOutputStream output = new FileOutputStream(System.getProperty("user.dir")+"//config.properties");
+//		      props.store(output, "This description goes to the header of a file");
+//		      output.close();
+//
+//		    } catch (IOException ex) {}
+//
+//		//to get value in properties file
+//		FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"//config.properties");
+//		Properties prop=new Properties();
+//		prop.load(file);
+//		
+//		System.out.println(prop.getProperty("username"));
+//		System.out.println(prop.getProperty("password"));
+		
+		File currDir = new File(".");
+		String path = currDir.getAbsolutePath();
+		System.out.println(path);
+		System.out.println(System.getProperty("user.dir"));
+		
 
 	}
 	

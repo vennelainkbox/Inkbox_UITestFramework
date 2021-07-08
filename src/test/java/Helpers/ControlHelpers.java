@@ -43,16 +43,12 @@ public class ControlHelpers extends LaunchDriver {
 		return driver.findElement(locator).isDisplayed();
 	}
 
+	public static int IsElementPresent(By locator) {
+		return driver.findElements(locator).size();
+	}
+
 	public static WebElement GetWebElement(By locator) {
 		WebElement element = null;
-//		if (IsElementVisible(locator)==true) {
-//			element = driver.findElement(locator);
-//		}
-//		else {
-//			throw new NoSuchElementException("unnable to find "+locator);
-//		}
-//		
-//		return element;
 		return element = driver.findElement(locator);
 	}
 
@@ -79,7 +75,7 @@ public class ControlHelpers extends LaunchDriver {
 			js.executeScript("arguments[0].click();", button);
 			driver.switchTo().defaultContent();
 
-			//test.log(LogStatus.PASS, "Clicked on " + getText(locator));
+			// test.log(LogStatus.PASS, "Clicked on " + getText(locator));
 		} catch (Exception e) {
 			// TODO: handle exception
 			test.log(LogStatus.ERROR, e.getLocalizedMessage());
@@ -127,9 +123,10 @@ public class ControlHelpers extends LaunchDriver {
 	public static void Entertext(By locator, String textvalue) {
 
 		try {
+			Thread.sleep(2000);
 			GetWebElement(locator).clear();
 			GetWebElement(locator).sendKeys(textvalue);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			test.log(LogStatus.ERROR, e.getLocalizedMessage());
@@ -145,7 +142,7 @@ public class ControlHelpers extends LaunchDriver {
 
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("arguments[0].value='" + textvalue + "';", element);
-		//	test.log(LogStatus.INFO, "Enter :" + textvalue + " in textbox");
+			// test.log(LogStatus.INFO, "Enter :" + textvalue + " in textbox");
 		} catch (Exception e) {
 			// TODO: handle exception
 			test.log(LogStatus.ERROR, e.getLocalizedMessage());
@@ -159,6 +156,12 @@ public class ControlHelpers extends LaunchDriver {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -185,6 +188,7 @@ public class ControlHelpers extends LaunchDriver {
 	public static void ClickEnter(By locator) {
 		GetWebElement(locator).sendKeys(Keys.ENTER);
 	}
+
 	public static void WaitForElementAndClick(By locator) {
 
 		try {
@@ -234,5 +238,15 @@ public class ControlHelpers extends LaunchDriver {
 		}
 		return randomnumber;
 
+	}
+
+	public static String GetCurrentUrl()  {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return driver.getCurrentUrl();
 	}
 }

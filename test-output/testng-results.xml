@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="6" total="18" passed="12" failed="0" skipped="0">
+<testng-results ignored="6" total="23" passed="17" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-07-06T09:21:48 EDT" name="Suite" finished-at="2021-07-06T09:28:26 EDT" duration-ms="397845">
+  <suite started-at="2021-07-08T11:00:58 EDT" name="Suite" finished-at="2021-07-08T11:14:25 EDT" duration-ms="806562">
     <groups>
     </groups>
-    <test started-at="2021-07-06T09:21:48 EDT" name="Test" finished-at="2021-07-06T09:28:26 EDT" duration-ms="397845">
+    <test started-at="2021-07-08T11:00:58 EDT" name="Test" finished-at="2021-07-08T11:14:25 EDT" duration-ms="806562">
       <class name="Inkbox.Tests.HomePageTest">
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:22:48 EDT" name="beforeMethod" finished-at="2021-07-06T09:22:54 EDT" duration-ms="5473" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:05 EDT" name="beforeMethod" finished-at="2021-07-08T11:02:14 EDT" duration-ms="8479" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,37 +23,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:22:54 EDT" name="BeforeMethod" finished-at="2021-07-06T09:22:54 EDT" duration-ms="50" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:14 EDT" name="BeforeMethod" finished-at="2021-07-08T11:02:14 EDT" duration-ms="40" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.ValidateUserImage_Changepassword()[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.Verify_Changepassword()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="ValidateUserImage_Changepassword()[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:22:54 EDT" name="ValidateUserImage_Changepassword" finished-at="2021-07-06T09:23:09 EDT" duration-ms="15485" status="PASS">
+        <test-method signature="Verify_Changepassword()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:14 EDT" name="Verify_Changepassword" finished-at="2021-07-08T11:02:46 EDT" duration-ms="32678" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValidateUserImage_Changepassword -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:09 EDT" name="AfterMethod" finished-at="2021-07-06T09:23:09 EDT" duration-ms="36" status="PASS">
+        </test-method> <!-- Verify_Changepassword -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:46 EDT" name="AfterMethod" finished-at="2021-07-08T11:02:47 EDT" duration-ms="33" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ValidateUserImage_Changepassword status=SUCCESS method=HomePageTest.ValidateUserImage_Changepassword()[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8] output={null}]]]>
+                <![CDATA[[TestResult name=Verify_Changepassword status=SUCCESS method=HomePageTest.Verify_Changepassword()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:09 EDT" name="afterMethod" finished-at="2021-07-06T09:23:10 EDT" duration-ms="339" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:47 EDT" name="afterMethod" finished-at="2021-07-08T11:02:47 EDT" duration-ms="482" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:10 EDT" name="beforeMethod" finished-at="2021-07-06T09:23:16 EDT" duration-ms="6038" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:47 EDT" name="beforeMethod" finished-at="2021-07-08T11:02:55 EDT" duration-ms="8276" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -69,179 +69,131 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:16 EDT" name="BeforeMethod" finished-at="2021-07-06T09:23:16 EDT" duration-ms="50" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:55 EDT" name="BeforeMethod" finished-at="2021-07-08T11:02:55 EDT" duration-ms="77" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.ProductsDisplayed_are_Clicable_And_Move_To_PDP()[pri:1, instance:Inkbox.Tests.HomePageTest@59fd97a8] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.Verify_Display_of_Products_on_Homepage()[pri:1, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="ProductsDisplayed_are_Clicable_And_Move_To_PDP()[pri:1, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:16 EDT" name="ProductsDisplayed_are_Clicable_And_Move_To_PDP" finished-at="2021-07-06T09:23:43 EDT" duration-ms="26927" status="PASS">
+        <test-method signature="Verify_Display_of_Products_on_Homepage()[pri:1, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:02:55 EDT" name="Verify_Display_of_Products_on_Homepage" finished-at="2021-07-08T11:03:17 EDT" duration-ms="21519" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ProductsDisplayed_are_Clicable_And_Move_To_PDP -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:43 EDT" name="AfterMethod" finished-at="2021-07-06T09:23:43 EDT" duration-ms="29" status="PASS">
+        </test-method> <!-- Verify_Display_of_Products_on_Homepage -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:03:17 EDT" name="AfterMethod" finished-at="2021-07-08T11:03:17 EDT" duration-ms="20" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ProductsDisplayed_are_Clicable_And_Move_To_PDP status=SUCCESS method=HomePageTest.ProductsDisplayed_are_Clicable_And_Move_To_PDP()[pri:1, instance:Inkbox.Tests.HomePageTest@59fd97a8] output={null}]]]>
+                <![CDATA[[TestResult name=Verify_Display_of_Products_on_Homepage status=SUCCESS method=HomePageTest.Verify_Display_of_Products_on_Homepage()[pri:1, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@59fd97a8]" started-at="2021-07-06T09:23:43 EDT" name="afterMethod" finished-at="2021-07-06T09:23:43 EDT" duration-ms="373" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:03:17 EDT" name="afterMethod" finished-at="2021-07-08T11:03:17 EDT" duration-ms="507" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:03:17 EDT" name="beforeMethod" finished-at="2021-07-08T11:03:26 EDT" duration-ms="9060" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:03:26 EDT" name="BeforeMethod" finished-at="2021-07-08T11:03:26 EDT" duration-ms="29" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.ProductsDisplayed_are_Clicable_And_Move_To_PDP()[pri:2, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="ProductsDisplayed_are_Clicable_And_Move_To_PDP()[pri:2, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:03:26 EDT" name="ProductsDisplayed_are_Clicable_And_Move_To_PDP" finished-at="2021-07-08T11:04:01 EDT" duration-ms="34208" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ProductsDisplayed_are_Clicable_And_Move_To_PDP -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:04:01 EDT" name="AfterMethod" finished-at="2021-07-08T11:04:01 EDT" duration-ms="31" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ProductsDisplayed_are_Clicable_And_Move_To_PDP status=SUCCESS method=HomePageTest.ProductsDisplayed_are_Clicable_And_Move_To_PDP()[pri:2, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:04:01 EDT" name="afterMethod" finished-at="2021-07-08T11:04:01 EDT" duration-ms="560" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:04:01 EDT" name="beforeMethod" finished-at="2021-07-08T11:04:09 EDT" duration-ms="7913" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:04:09 EDT" name="BeforeMethod" finished-at="2021-07-08T11:04:09 EDT" duration-ms="37" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.VerifypopularCategories()[pri:3, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="VerifypopularCategories()[pri:3, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:04:09 EDT" name="VerifypopularCategories" finished-at="2021-07-08T11:05:54 EDT" duration-ms="104345" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifypopularCategories -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:05:54 EDT" name="AfterMethod" finished-at="2021-07-08T11:05:54 EDT" duration-ms="41" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifypopularCategories status=SUCCESS method=HomePageTest.VerifypopularCategories()[pri:3, instance:Inkbox.Tests.HomePageTest@6c80d78a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@6c80d78a]" started-at="2021-07-08T11:05:54 EDT" name="afterMethod" finished-at="2021-07-08T11:05:54 EDT" duration-ms="551" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- Inkbox.Tests.HomePageTest -->
-      <class name="Inkbox.Tests.CartTest">
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:25:52 EDT" name="beforeMethod" finished-at="2021-07-06T09:25:58 EDT" duration-ms="5940" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://inkbox.com]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:25:58 EDT" name="BeforeMethod" finished-at="2021-07-06T09:25:58 EDT" duration-ms="71" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.ValidateItems_Adding_To_Cart()[pri:0, instance:Inkbox.Tests.CartTest@441772e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeMethod -->
-        <test-method signature="ValidateItems_Adding_To_Cart()[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:25:58 EDT" name="ValidateItems_Adding_To_Cart" finished-at="2021-07-06T09:26:39 EDT" duration-ms="40971" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValidateItems_Adding_To_Cart -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:26:39 EDT" name="AfterMethod" finished-at="2021-07-06T09:26:39 EDT" duration-ms="22" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ValidateItems_Adding_To_Cart status=SUCCESS method=CartTest.ValidateItems_Adding_To_Cart()[pri:0, instance:Inkbox.Tests.CartTest@441772e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:26:39 EDT" name="afterMethod" finished-at="2021-07-06T09:26:43 EDT" duration-ms="4310" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:26:43 EDT" name="beforeMethod" finished-at="2021-07-06T09:26:49 EDT" duration-ms="6233" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://inkbox.com]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:26:49 EDT" name="BeforeMethod" finished-at="2021-07-06T09:26:49 EDT" duration-ms="55" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.IncreamentProduct_InCart_And_Remove_Items_In_Cart()[pri:1, instance:Inkbox.Tests.CartTest@441772e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeMethod -->
-        <test-method signature="IncreamentProduct_InCart_And_Remove_Items_In_Cart()[pri:1, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:26:49 EDT" name="IncreamentProduct_InCart_And_Remove_Items_In_Cart" finished-at="2021-07-06T09:27:49 EDT" duration-ms="60241" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IncreamentProduct_InCart_And_Remove_Items_In_Cart -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:27:49 EDT" name="AfterMethod" finished-at="2021-07-06T09:27:49 EDT" duration-ms="53" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=IncreamentProduct_InCart_And_Remove_Items_In_Cart status=SUCCESS method=CartTest.IncreamentProduct_InCart_And_Remove_Items_In_Cart()[pri:1, instance:Inkbox.Tests.CartTest@441772e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:27:49 EDT" name="afterMethod" finished-at="2021-07-06T09:27:50 EDT" duration-ms="357" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:27:50 EDT" name="beforeMethod" finished-at="2021-07-06T09:27:56 EDT" duration-ms="5685" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://inkbox.com]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:27:56 EDT" name="BeforeMethod" finished-at="2021-07-06T09:27:56 EDT" duration-ms="44" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.AddItemsToCart_without_Login_and_ValidateAfterLogin()[pri:2, instance:Inkbox.Tests.CartTest@441772e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeMethod -->
-        <test-method signature="AddItemsToCart_without_Login_and_ValidateAfterLogin()[pri:2, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:27:56 EDT" name="AddItemsToCart_without_Login_and_ValidateAfterLogin" finished-at="2021-07-06T09:28:26 EDT" duration-ms="30159" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddItemsToCart_without_Login_and_ValidateAfterLogin -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:28:26 EDT" name="AfterMethod" finished-at="2021-07-06T09:28:26 EDT" duration-ms="33" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=AddItemsToCart_without_Login_and_ValidateAfterLogin status=SUCCESS method=CartTest.AddItemsToCart_without_Login_and_ValidateAfterLogin()[pri:2, instance:Inkbox.Tests.CartTest@441772e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@441772e]" started-at="2021-07-06T09:28:26 EDT" name="afterMethod" finished-at="2021-07-06T09:28:26 EDT" duration-ms="416" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- Inkbox.Tests.CartTest -->
       <class name="Inkbox.Tests.ProductSearchTest">
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:23:43 EDT" name="beforeMethod" finished-at="2021-07-06T09:23:48 EDT" duration-ms="5370" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:05:54 EDT" name="beforeMethod" finished-at="2021-07-08T11:06:01 EDT" duration-ms="6765" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -257,37 +209,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:23:48 EDT" name="BeforeMethod" finished-at="2021-07-06T09:23:48 EDT" duration-ms="55" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:01 EDT" name="BeforeMethod" finished-at="2021-07-08T11:06:01 EDT" duration-ms="45" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.Autosuggestion_Validation()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.Autosuggestion_Validation()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="Autosuggestion_Validation()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:23:48 EDT" name="Autosuggestion_Validation" finished-at="2021-07-06T09:24:04 EDT" duration-ms="15757" status="PASS">
+        <test-method signature="Autosuggestion_Validation()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:01 EDT" name="Autosuggestion_Validation" finished-at="2021-07-08T11:06:40 EDT" duration-ms="39360" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Autosuggestion_Validation -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:04 EDT" name="AfterMethod" finished-at="2021-07-06T09:24:04 EDT" duration-ms="28" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:40 EDT" name="AfterMethod" finished-at="2021-07-08T11:06:40 EDT" duration-ms="19" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Autosuggestion_Validation status=SUCCESS method=ProductSearchTest.Autosuggestion_Validation()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name=Autosuggestion_Validation status=SUCCESS method=ProductSearchTest.Autosuggestion_Validation()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:04 EDT" name="afterMethod" finished-at="2021-07-06T09:24:09 EDT" duration-ms="4308" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:40 EDT" name="afterMethod" finished-at="2021-07-08T11:06:41 EDT" duration-ms="518" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:09 EDT" name="beforeMethod" finished-at="2021-07-06T09:24:15 EDT" duration-ms="6213" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:41 EDT" name="beforeMethod" finished-at="2021-07-08T11:06:48 EDT" duration-ms="7090" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -303,37 +255,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:15 EDT" name="BeforeMethod" finished-at="2021-07-06T09:24:15 EDT" duration-ms="43" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:48 EDT" name="BeforeMethod" finished-at="2021-07-08T11:06:48 EDT" duration-ms="43" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.SortByPriceLowToHigh()[pri:1, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.SortByPriceLowToHigh()[pri:1, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="SortByPriceLowToHigh()[pri:1, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:15 EDT" name="SortByPriceLowToHigh" finished-at="2021-07-06T09:24:44 EDT" duration-ms="28763" status="PASS">
+        <test-method signature="SortByPriceLowToHigh()[pri:1, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:06:48 EDT" name="SortByPriceLowToHigh" finished-at="2021-07-08T11:07:21 EDT" duration-ms="32574" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SortByPriceLowToHigh -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:44 EDT" name="AfterMethod" finished-at="2021-07-06T09:24:44 EDT" duration-ms="20" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:21 EDT" name="AfterMethod" finished-at="2021-07-08T11:07:21 EDT" duration-ms="19" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SortByPriceLowToHigh status=SUCCESS method=ProductSearchTest.SortByPriceLowToHigh()[pri:1, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name=SortByPriceLowToHigh status=SUCCESS method=ProductSearchTest.SortByPriceLowToHigh()[pri:1, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:44 EDT" name="afterMethod" finished-at="2021-07-06T09:24:44 EDT" duration-ms="367" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:21 EDT" name="afterMethod" finished-at="2021-07-08T11:07:21 EDT" duration-ms="449" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:44 EDT" name="beforeMethod" finished-at="2021-07-06T09:24:50 EDT" duration-ms="5765" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:21 EDT" name="beforeMethod" finished-at="2021-07-08T11:07:28 EDT" duration-ms="7060" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -349,37 +301,83 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:50 EDT" name="BeforeMethod" finished-at="2021-07-06T09:24:50 EDT" duration-ms="55" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:28 EDT" name="BeforeMethod" finished-at="2021-07-08T11:07:28 EDT" duration-ms="43" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.SortBySize()[pri:2, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.Verify_SearchResults()[pri:2, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="SortBySize()[pri:2, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:24:50 EDT" name="SortBySize" finished-at="2021-07-06T09:25:18 EDT" duration-ms="27768" status="PASS">
+        <test-method signature="Verify_SearchResults()[pri:2, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:28 EDT" name="Verify_SearchResults" finished-at="2021-07-08T11:07:53 EDT" duration-ms="24746" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_SearchResults -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:53 EDT" name="AfterMethod" finished-at="2021-07-08T11:07:53 EDT" duration-ms="18" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Verify_SearchResults status=SUCCESS method=ProductSearchTest.Verify_SearchResults()[pri:2, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:53 EDT" name="afterMethod" finished-at="2021-07-08T11:07:57 EDT" duration-ms="4395" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:07:57 EDT" name="beforeMethod" finished-at="2021-07-08T11:08:04 EDT" duration-ms="6411" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:04 EDT" name="BeforeMethod" finished-at="2021-07-08T11:08:04 EDT" duration-ms="41" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.SortBySize()[pri:3, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="SortBySize()[pri:3, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:04 EDT" name="SortBySize" finished-at="2021-07-08T11:08:36 EDT" duration-ms="32576" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SortBySize -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:18 EDT" name="AfterMethod" finished-at="2021-07-06T09:25:18 EDT" duration-ms="24" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:36 EDT" name="AfterMethod" finished-at="2021-07-08T11:08:36 EDT" duration-ms="40" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SortBySize status=SUCCESS method=ProductSearchTest.SortBySize()[pri:2, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name=SortBySize status=SUCCESS method=ProductSearchTest.SortBySize()[pri:3, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:18 EDT" name="afterMethod" finished-at="2021-07-06T09:25:18 EDT" duration-ms="327" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:36 EDT" name="afterMethod" finished-at="2021-07-08T11:08:41 EDT" duration-ms="4385" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:18 EDT" name="beforeMethod" finished-at="2021-07-06T09:25:24 EDT" duration-ms="6111" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:41 EDT" name="beforeMethod" finished-at="2021-07-08T11:08:47 EDT" duration-ms="6561" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -395,47 +393,279 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:24 EDT" name="BeforeMethod" finished-at="2021-07-06T09:25:24 EDT" duration-ms="61" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:47 EDT" name="BeforeMethod" finished-at="2021-07-08T11:08:47 EDT" duration-ms="31" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.ValidatePresentUrl_with_PreviousUrl()[pri:3, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.ValidatePresentUrl_with_PreviousUrl()[pri:4, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="ValidatePresentUrl_with_PreviousUrl()[pri:3, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:24 EDT" name="ValidatePresentUrl_with_PreviousUrl" finished-at="2021-07-06T09:25:51 EDT" duration-ms="27120" status="PASS">
+        <test-method signature="ValidatePresentUrl_with_PreviousUrl()[pri:4, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:08:47 EDT" name="ValidatePresentUrl_with_PreviousUrl" finished-at="2021-07-08T11:09:19 EDT" duration-ms="32102" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidatePresentUrl_with_PreviousUrl -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:51 EDT" name="AfterMethod" finished-at="2021-07-06T09:25:51 EDT" duration-ms="29" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:19 EDT" name="AfterMethod" finished-at="2021-07-08T11:09:19 EDT" duration-ms="28" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ValidatePresentUrl_with_PreviousUrl status=SUCCESS method=ProductSearchTest.ValidatePresentUrl_with_PreviousUrl()[pri:3, instance:Inkbox.Tests.ProductSearchTest@dbf57b3] output={null}]]]>
+                <![CDATA[[TestResult name=ValidatePresentUrl_with_PreviousUrl status=SUCCESS method=ProductSearchTest.ValidatePresentUrl_with_PreviousUrl()[pri:4, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@dbf57b3]" started-at="2021-07-06T09:25:51 EDT" name="afterMethod" finished-at="2021-07-06T09:25:52 EDT" duration-ms="359" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:19 EDT" name="afterMethod" finished-at="2021-07-08T11:09:20 EDT" duration-ms="463" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:20 EDT" name="beforeMethod" finished-at="2021-07-08T11:09:26 EDT" duration-ms="6194" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:26 EDT" name="BeforeMethod" finished-at="2021-07-08T11:09:26 EDT" duration-ms="35" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=ProductSearchTest.ValidatePricingBlock()[pri:5, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="ValidatePricingBlock()[pri:5, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:26 EDT" name="ValidatePricingBlock" finished-at="2021-07-08T11:09:52 EDT" duration-ms="25604" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidatePricingBlock -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:52 EDT" name="AfterMethod" finished-at="2021-07-08T11:09:52 EDT" duration-ms="20" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ValidatePricingBlock status=SUCCESS method=ProductSearchTest.ValidatePricingBlock()[pri:5, instance:Inkbox.Tests.ProductSearchTest@7fa98a66] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ProductSearchTest@7fa98a66]" started-at="2021-07-08T11:09:52 EDT" name="afterMethod" finished-at="2021-07-08T11:09:52 EDT" duration-ms="612" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- Inkbox.Tests.ProductSearchTest -->
+      <class name="Inkbox.Tests.CartTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:09:52 EDT" name="beforeMethod" finished-at="2021-07-08T11:09:59 EDT" duration-ms="6767" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:09:59 EDT" name="BeforeMethod" finished-at="2021-07-08T11:09:59 EDT" duration-ms="27" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.ValidateItems_Adding_To_Cart()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="ValidateItems_Adding_To_Cart()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:09:59 EDT" name="ValidateItems_Adding_To_Cart" finished-at="2021-07-08T11:10:53 EDT" duration-ms="53874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateItems_Adding_To_Cart -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:10:53 EDT" name="AfterMethod" finished-at="2021-07-08T11:10:53 EDT" duration-ms="18" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ValidateItems_Adding_To_Cart status=SUCCESS method=CartTest.ValidateItems_Adding_To_Cart()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:10:53 EDT" name="afterMethod" finished-at="2021-07-08T11:10:54 EDT" duration-ms="452" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:10:54 EDT" name="beforeMethod" finished-at="2021-07-08T11:11:00 EDT" duration-ms="6785" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:11:00 EDT" name="BeforeMethod" finished-at="2021-07-08T11:11:00 EDT" duration-ms="27" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart()[pri:1, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart()[pri:1, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:11:00 EDT" name="IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart" finished-at="2021-07-08T11:12:37 EDT" duration-ms="96939" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:12:37 EDT" name="AfterMethod" finished-at="2021-07-08T11:12:37 EDT" duration-ms="19" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart status=SUCCESS method=CartTest.IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart()[pri:1, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:12:37 EDT" name="afterMethod" finished-at="2021-07-08T11:12:38 EDT" duration-ms="578" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:12:38 EDT" name="beforeMethod" finished-at="2021-07-08T11:12:44 EDT" duration-ms="6193" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:12:44 EDT" name="BeforeMethod" finished-at="2021-07-08T11:12:44 EDT" duration-ms="23" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.VerifyFreeShippingMessage()[pri:2, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="VerifyFreeShippingMessage()[pri:2, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:12:44 EDT" name="VerifyFreeShippingMessage" finished-at="2021-07-08T11:13:29 EDT" duration-ms="45060" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyFreeShippingMessage -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:13:29 EDT" name="AfterMethod" finished-at="2021-07-08T11:13:29 EDT" duration-ms="16" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyFreeShippingMessage status=SUCCESS method=CartTest.VerifyFreeShippingMessage()[pri:2, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:13:29 EDT" name="afterMethod" finished-at="2021-07-08T11:13:34 EDT" duration-ms="4397" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:13:34 EDT" name="beforeMethod" finished-at="2021-07-08T11:13:42 EDT" duration-ms="8857" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://inkbox.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:13:42 EDT" name="BeforeMethod" finished-at="2021-07-08T11:13:43 EDT" duration-ms="61" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=CartTest.AddItemsToCart_without_Login_and_ValidateAfterLogin()[pri:3, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method signature="AddItemsToCart_without_Login_and_ValidateAfterLogin()[pri:3, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:13:43 EDT" name="AddItemsToCart_without_Login_and_ValidateAfterLogin" finished-at="2021-07-08T11:14:24 EDT" duration-ms="41520" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddItemsToCart_without_Login_and_ValidateAfterLogin -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:14:24 EDT" name="AfterMethod" finished-at="2021-07-08T11:14:24 EDT" duration-ms="21" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddItemsToCart_without_Login_and_ValidateAfterLogin status=SUCCESS method=CartTest.AddItemsToCart_without_Login_and_ValidateAfterLogin()[pri:3, instance:Inkbox.Tests.CartTest@6dc17b83] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.CartTest@6dc17b83]" started-at="2021-07-08T11:14:24 EDT" name="afterMethod" finished-at="2021-07-08T11:14:25 EDT" duration-ms="435" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Inkbox.Tests.CartTest -->
       <class name="Inkbox.Tests.LoginTest">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:21:48 EDT" name="beforeSuite" finished-at="2021-07-06T09:21:48 EDT" duration-ms="8" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:00:58 EDT" name="beforeSuite" finished-at="2021-07-08T11:00:58 EDT" duration-ms="10" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:21:48 EDT" name="beforeTest" finished-at="2021-07-06T09:21:48 EDT" duration-ms="116" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:00:58 EDT" name="beforeTest" finished-at="2021-07-08T11:00:58 EDT" duration-ms="118" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:21:48 EDT" name="beforeMethod" finished-at="2021-07-06T09:21:54 EDT" duration-ms="6011" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:00:58 EDT" name="beforeMethod" finished-at="2021-07-08T11:01:05 EDT" duration-ms="7036" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -451,37 +681,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:21:54 EDT" name="BeforeMethod" finished-at="2021-07-06T09:21:54 EDT" duration-ms="8" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:05 EDT" name="BeforeMethod" finished-at="2021-07-08T11:01:05 EDT" duration-ms="15" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=LoginTest.LoginWithDirectUser()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=LoginTest.LoginWithDirectUser()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="LoginWithDirectUser()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:21:54 EDT" name="LoginWithDirectUser" finished-at="2021-07-06T09:22:05 EDT" duration-ms="10331" status="PASS">
+        <test-method signature="LoginWithDirectUser()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:05 EDT" name="LoginWithDirectUser" finished-at="2021-07-08T11:01:20 EDT" duration-ms="14517" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginWithDirectUser -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:05 EDT" name="AfterMethod" finished-at="2021-07-06T09:22:05 EDT" duration-ms="236" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:20 EDT" name="AfterMethod" finished-at="2021-07-08T11:01:20 EDT" duration-ms="240" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LoginWithDirectUser status=SUCCESS method=LoginTest.LoginWithDirectUser()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f] output={null}]]]>
+                <![CDATA[[TestResult name=LoginWithDirectUser status=SUCCESS method=LoginTest.LoginWithDirectUser()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:05 EDT" name="afterMethod" finished-at="2021-07-06T09:22:05 EDT" duration-ms="374" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:20 EDT" name="afterMethod" finished-at="2021-07-08T11:01:20 EDT" duration-ms="457" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:05 EDT" name="beforeMethod" finished-at="2021-07-06T09:22:11 EDT" duration-ms="6044" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:20 EDT" name="beforeMethod" finished-at="2021-07-08T11:01:28 EDT" duration-ms="7203" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -497,37 +727,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:11 EDT" name="BeforeMethod" finished-at="2021-07-06T09:22:12 EDT" duration-ms="171" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:28 EDT" name="BeforeMethod" finished-at="2021-07-08T11:01:28 EDT" duration-ms="234" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=LoginTest.LoginWithFacebook()[pri:1, instance:Inkbox.Tests.LoginTest@20deea7f] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=LoginTest.LoginWithFacebook()[pri:1, instance:Inkbox.Tests.LoginTest@6973b51b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="LoginWithFacebook()[pri:1, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:12 EDT" name="LoginWithFacebook" finished-at="2021-07-06T09:22:23 EDT" duration-ms="11713" status="PASS">
+        <test-method signature="LoginWithFacebook()[pri:1, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:28 EDT" name="LoginWithFacebook" finished-at="2021-07-08T11:01:40 EDT" duration-ms="12222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginWithFacebook -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:23 EDT" name="AfterMethod" finished-at="2021-07-06T09:22:23 EDT" duration-ms="45" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:40 EDT" name="AfterMethod" finished-at="2021-07-08T11:01:40 EDT" duration-ms="40" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LoginWithFacebook status=SUCCESS method=LoginTest.LoginWithFacebook()[pri:1, instance:Inkbox.Tests.LoginTest@20deea7f] output={null}]]]>
+                <![CDATA[[TestResult name=LoginWithFacebook status=SUCCESS method=LoginTest.LoginWithFacebook()[pri:1, instance:Inkbox.Tests.LoginTest@6973b51b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:23 EDT" name="afterMethod" finished-at="2021-07-06T09:22:24 EDT" duration-ms="436" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:40 EDT" name="afterMethod" finished-at="2021-07-08T11:01:41 EDT" duration-ms="447" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:24 EDT" name="beforeMethod" finished-at="2021-07-06T09:22:31 EDT" duration-ms="6855" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:41 EDT" name="beforeMethod" finished-at="2021-07-08T11:01:47 EDT" duration-ms="6888" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -543,33 +773,33 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:31 EDT" name="BeforeMethod" finished-at="2021-07-06T09:22:31 EDT" duration-ms="47" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:47 EDT" name="BeforeMethod" finished-at="2021-07-08T11:01:47 EDT" duration-ms="46" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=LoginTest.LoginWithGoogle()[pri:2, instance:Inkbox.Tests.LoginTest@20deea7f] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=LoginTest.LoginWithGoogle()[pri:2, instance:Inkbox.Tests.LoginTest@6973b51b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="LoginWithGoogle()[pri:2, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:31 EDT" name="LoginWithGoogle" finished-at="2021-07-06T09:22:48 EDT" duration-ms="16988" status="PASS">
+        <test-method signature="LoginWithGoogle()[pri:2, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:01:47 EDT" name="LoginWithGoogle" finished-at="2021-07-08T11:02:05 EDT" duration-ms="17355" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginWithGoogle -->
-        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:48 EDT" name="AfterMethod" finished-at="2021-07-06T09:22:48 EDT" duration-ms="41" status="PASS">
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:02:05 EDT" name="AfterMethod" finished-at="2021-07-08T11:02:05 EDT" duration-ms="31" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LoginWithGoogle status=SUCCESS method=LoginTest.LoginWithGoogle()[pri:2, instance:Inkbox.Tests.LoginTest@20deea7f] output={null}]]]>
+                <![CDATA[[TestResult name=LoginWithGoogle status=SUCCESS method=LoginTest.LoginWithGoogle()[pri:2, instance:Inkbox.Tests.LoginTest@6973b51b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.LoginTest@20deea7f]" started-at="2021-07-06T09:22:48 EDT" name="afterMethod" finished-at="2021-07-06T09:22:48 EDT" duration-ms="442" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.LoginTest@6973b51b]" started-at="2021-07-08T11:02:05 EDT" name="afterMethod" finished-at="2021-07-08T11:02:05 EDT" duration-ms="441" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

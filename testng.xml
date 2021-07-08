@@ -6,9 +6,12 @@
 		<listener class-name="Listener.CustomListener" />
 
 	</listeners>
+
 	<test thread-count="5" name="Test" preserve-order="true">
+
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="URL" value="https://inkbox.com"></parameter>
+
 		<classes>
 			<class name="Inkbox.Tests.LoginTest" />
 			<class name="Inkbox.Tests.HomePageTest" />

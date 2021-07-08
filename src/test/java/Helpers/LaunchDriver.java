@@ -10,6 +10,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +21,7 @@ import java.nio.file.attribute.BasicFileAttributeView;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
 import java.text.SimpleDateFormat;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -32,10 +36,22 @@ public class LaunchDriver {
 
 	String reportPath;
 	public ExtentReports report;
+	
+	 static public String password=null;
 	// ExtentTest test;
+
+	
 
 	public String getReportPath() {
 		return reportPath;
+	}
+
+	public static String getPassword() {
+		return password;
+	}
+
+	public static void setPassword(String password) {
+		LaunchDriver.password = password;
 	}
 
 	public void setReportPath(String reportPath) {
@@ -97,6 +113,7 @@ public class LaunchDriver {
 	@BeforeSuite
 	public void beforeSuite() throws IOException {
 		Move_Report_To_OldReport();
+		getpassword_configFile();
 	}
 
 	public static void Move_Report_To_OldReport() throws IOException {
@@ -132,4 +149,35 @@ public class LaunchDriver {
 		return fileTime;
 	}
 
+	
+	
+	public void getpassword_configFile() throws IOException {
+		FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"//config.properties");
+		Properties prop=new Properties();
+		prop.load(file);
+		
+		setPassword(prop.getProperty("password"));
+		System.out.println(prop.getProperty("password"));
+		
+	}
+	
+	public static void setpassword_configFile(String password) {
+		Properties props = new Properties();
+		try {
+		      //first load old one:
+		      FileInputStream configStream = new FileInputStream(System.getProperty("user.dir")+"//config.properties");
+		      props.load(configStream);
+		      configStream.close();
+
+		      //modifies existing or adds new property
+		      props.setProperty("password", password);
+
+		      //save modified property file
+		      FileOutputStream output = new FileOutputStream(System.getProperty("user.dir")+"//config.properties");
+		      props.store(output, "This description goes to the header of a file");
+		      output.close();
+		      System.out.println("password changed to :"+password);
+
+		    } catch (IOException ex) {}
+	}
 }

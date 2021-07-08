@@ -1,5 +1,6 @@
 package Inkbox.Tests;
 
+import java.awt.AWTException;
 import java.io.IOException;
 
 import org.testng.ITestResult;
@@ -18,6 +19,7 @@ import Helpers.Screenshots;
 import Helpers.WebdriverFactory;
 import Inkbox.Pages.Ads;
 import Inkbox.Pages.BasePage;
+import Inkbox.Pages.HomePage;
 import Inkbox.Pages.LoginPage;
 import Inkbox.Pages.ProductsPage;
 
@@ -27,22 +29,54 @@ public class HomePageTest extends LaunchDriver {
 	
 	LoginPage loginPage;
 	
+//	@Test(priority = 0)
+//	public void Verify_UserImage_Changepassword() {
+//		LoginPage loginPage = new LoginPage(test);
+//		loginPage.UserLogin();
+//		BasePage basePage=new BasePage(test);
+//		basePage.VerifyUserImage_Is_Changing_Or_Not();
+//		basePage.verifyChangePassword();
+//	}
+	
+	
 	@Test(priority = 0)
-	public void ValidateUserImage_Changepassword() {
+	public void Verify_Changepassword() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		BasePage basePage=new BasePage(test);
-		basePage.VerifyUserImage();
 		basePage.verifyChangePassword();
 	}
 	
+//	@Test
+//	public void UserImageChangingOrNot() throws AWTException, InterruptedException {
+//		LoginPage loginPage = new LoginPage(test);
+//		loginPage.UserLogin();
+//		BasePage basePage=new BasePage(test);
+//		basePage.VerifyUserImage_Is_Changing_Or_Not();
+//	}
+	 
 	@Test(priority = 1)
+	public void Verify_Display_of_Products_on_Homepage() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		HomePage homePage=new HomePage(test);
+		homePage.Validating_JustDrop_Products();
+	}
+	@Test(priority = 2)
 	public void ProductsDisplayed_are_Clicable_And_Move_To_PDP() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		
 		productspage = new ProductsPage(test);
 		productspage.Validate_Products_displayed_clickable();
+	}
+	
+	@Test(priority = 3)
+	public void VerifypopularCategories() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		HomePage homePage=new HomePage(test);
+		homePage.ValidatePopularCategories();
 	}
 	
 	@BeforeMethod

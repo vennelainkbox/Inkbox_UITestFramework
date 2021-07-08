@@ -9,6 +9,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Helpers.ControlHelpers;
+import Helpers.LaunchDriver;
 
 public class LoginPage {
 	ExtentTest test;
@@ -80,7 +81,9 @@ public class LoginPage {
 			loginPage = new LoginPage(test);
 			loginPage.ClickLogin_link();
 			loginPage.EnterEmail("testinkbox@gmail.com");
-			loginPage.EnterPassword("Test@123");
+			//loginPage.EnterPassword("Test@123");
+			//System.out.println("password :"+LaunchDriver.getPassword());
+			loginPage.EnterPassword(LaunchDriver.getPassword());
 			loginPage.ClickLoginButton();
 
 		} catch (Exception e) {

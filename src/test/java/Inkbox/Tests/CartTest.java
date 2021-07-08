@@ -47,32 +47,104 @@ public class CartTest extends LaunchDriver {
 	@Test(priority = 0)
 	public void ValidateItems_Adding_To_Cart() {
 		AddingItemsTocart();
+	
 	}
 	
 	@Test(priority = 1)
-	public void IncreamentProduct_InCart_And_Remove_Items_In_Cart() {
+	public void IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart() {
 		AddingItemsTocart();
+	
 		CartPage cartpage = new CartPage(test);
-		cartpage.IncrementOrDecrementTheProduct();
+		cartpage.IncrementTheProductInCart();
 		cartpage.RemoveItemsFromCart();
-		BasePage basePage=new BasePage(test);
-		basePage.Logout();
-		cartpage.VerifyCartIsEmpty();
+//		BasePage basePage=new BasePage(test);
+//		basePage.Logout();
+		int count =cartpage.VerifyCartIsEmpty();
+		if (count == 0) {
+			test.log(LogStatus.PASS, "Cart is Empty");
+		} else {
+			test.log(LogStatus.ERROR, "Cart is not Empty :" + count + " items present in cart");
+		}
+		
+		boolean status=cartpage.Verify_No_Items_In_Cart_Message();
+		if(status)
+		{
+			test.log(LogStatus.PASS, "You have no items in your cart");
+		}
+		else {
+			test.log(LogStatus.FAIL, "You have no items in your cart is not visible in cart");
+		}
+		
+		int ContinueToCheckout=cartpage.Verify_ContinueToCheckout();
+		if(ContinueToCheckout >0)
+		{
+			test.log(LogStatus.FAIL, "Continue To Checkout is visible after cart is emplty");
+			
+		}
+		else {
+			test.log(LogStatus.PASS, "Continue To Checkout is not visible after cart is emplty");
+		}
+		
+		int status_SubTotal=cartpage.Verify_SubTotal();
+		if(status_SubTotal>0)
+		{
+			test.log(LogStatus.FAIL, "SubTotal is visible after cart is emplty");
+			
+		}
+		else {
+			test.log(LogStatus.PASS, "SubTotal is not visible after cart is emplty");
+		}
+		
+		int status_Total=cartpage.Verify_SubTotal();
+		if(status_Total >0)
+		{
+			test.log(LogStatus.FAIL, "Total is visible after cart is emplty");
+			
+		}
+		else {
+			test.log(LogStatus.PASS, "Total is not visible after cart is emplty");
+		}
 	}
 	
 	@Test(priority = 2)
+	public void VerifyFreeShippingMessage() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		ProductsPage productspage=new ProductsPage(test);
+		//productspage.numberOfproductsAdded=0;
+		productspage.selectProductRandomly_AddToCart();
+		CartPage cartPage=new CartPage(test);
+		String price;
+		float priceInFloat = 0;
+		do
+		{
+			cartPage.IncrementTheProductInCart();
+			price = cartPage.GetPriceOfProductInCart();
+			priceInFloat = (Float.parseFloat(price.replace("$", "")));
+		}while(priceInFloat < 35.0);
+		
+		String ShippingPrice=cartPage.GetShippigPrice();
+		if(ShippingPrice.equalsIgnoreCase("You have free shipping"))
+		{
+			test.log(LogStatus.PASS, ShippingPrice+ " message is shown");
+		}
+		else {
+			test.log(LogStatus.FAIL, ShippingPrice+ " is shown, instead of 'You have free shipping'");
+		}
+		
+	}
+	
+	@Test(priority = 3)
 	public void AddItemsToCart_without_Login_and_ValidateAfterLogin() {
 		Ads ads = new Ads(test);
 		try {
 			ads.closeAd();
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
 			Thread.sleep(6000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		BasePage basePage=new BasePage(test);
@@ -94,6 +166,7 @@ public class CartTest extends LaunchDriver {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		ProductsPage productspage=new ProductsPage(test);
+		productspage.numberOfproductsAdded=0;
 		productspage.selectProductRandomly_AddToCart();
 		CartPage cartpage=new CartPage(test);
 		try {
