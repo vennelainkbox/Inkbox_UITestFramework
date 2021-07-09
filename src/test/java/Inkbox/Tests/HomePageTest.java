@@ -28,15 +28,7 @@ public class HomePageTest extends LaunchDriver {
 	ProductsPage productspage;
 	
 	LoginPage loginPage;
-	
-//	@Test(priority = 0)
-//	public void Verify_UserImage_Changepassword() {
-//		LoginPage loginPage = new LoginPage(test);
-//		loginPage.UserLogin();
-//		BasePage basePage=new BasePage(test);
-//		basePage.VerifyUserImage_Is_Changing_Or_Not();
-//		basePage.verifyChangePassword();
-//	}
+
 	
 	
 	@Test(priority = 0)
@@ -77,6 +69,32 @@ public class HomePageTest extends LaunchDriver {
 		loginPage.UserLogin();
 		HomePage homePage=new HomePage(test);
 		homePage.ValidatePopularCategories();
+	}
+	@Test(priority = 4)
+	public void Validating_Headers() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.Vadidating_Header();
+		basePage.Validating_NavBar();
+		basePage.Validating_MenuItems();
+		
+	}
+	
+	//@Test(priority = 5)
+	public void Validating_Footers() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.Validate_Footer();
+	}
+	
+	@Test(priority = 5)
+	public void ValidateProfilePage() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.ValidateProfile();
 	}
 	
 	@BeforeMethod

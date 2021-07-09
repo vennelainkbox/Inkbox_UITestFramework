@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Assert;
@@ -35,13 +36,22 @@ public class BasePage {
 	String SortBy = "//button[@id='options-menu']";
 
 	// Header paths
-	String Student_discount = "//*[@id=\"header-student\"]/a[text()='Student Discount']";
+	String Student_discount = "//*[@id='header-student']/a[text()='Student Discount']";
 	String Rewards = "//*[@id=\"header-rewards\"]/a[text()='Rewards']";
 	String Help = "//div[@id='header-help']/button/span[text()='Help']";
 	String Login_Button = "//*[@id='header-user']/button";
 
+	String Shop = "//div[@id='nav-links']/div/a[contains(text(),'Shop')]";
+	String TattooQuiz = "//div[@id='nav-links']/div/a[contains(text(),'Tattoo Quiz')]";
+	String Custom = "//div[@id='nav-links']/div/a[contains(text(),'Custom')]";
+	String Collabs = "//div[@id='nav-links']/div/a[contains(text(),'Collabs')]";
+	String Trending = "//div[@id='nav-links']/div/a[contains(text(),'Trending')]";
+	String Sale = "//div[@id='nav-links']/div/a[contains(text(),'Sale')]";
+	String How_It_Work = "//div[@id='nav-links']/div/a[contains(text(),'How it Works')]";
+	String BTS_Inkbox = "//div[@id='nav-links']/div/a[contains(text(),'BTS | Inkbox')]";
+
 	// profile
-	String YourProfile = "//div[@id='header-user']/descendant::a[contains(text(),'Your Profile')]";
+
 	String UserImage = "//div[@id='profile']/descendant::div/img";
 	String ChangePhoto = "//div[@id='profile']/descendant::p/label";
 	String ChangePassword = "//div[@id='profile']/descendant::a[text()='Change Password']";
@@ -54,14 +64,11 @@ public class BasePage {
 	String Logout = "//button[text()='Logout']";
 
 	// Menu Items
-	String Shop = "//div[@id='nav-links']/div/a[contains(text(),'Shop')]";
-	String TattooQuiz = "//div[@id='nav-links']/div/a[contains(text(),'Tattoo Quiz')]";
-	String Custom = "//div[@id='nav-links']/div/a[contains(text(),'Custom')]";
-	String Collabs = "//div[@id='nav-links']/div/a[contains(text(),'Collabs')]";
-	String Trending = "//div[@id='nav-links']/div/a[contains(text(),'Trending')]";
-	String Sale = "//div[@id='nav-links']/div/a[contains(text(),'Sale')]";
-	String How_It_Work = "//div[@id='nav-links']/div/a[contains(text(),'How it Works')]";
-	String BTS_Inkbox = "//div[@id='nav-links']/div/a[contains(text(),'BTS | Inkbox')]";
+
+	String MyRewards = "//div[@id='header-user']/descendant::a[contains(text(),'My Rewards')]";
+	String MyFavorites = "//div[@id='header-user']/descendant::a[contains(text(),'My Favorites')]";
+	String OrderHistory = "//div[@id='header-user']/descendant::a[contains(text(),'Order History')]";
+	String YourProfile = "//div[@id='header-user']/descendant::a[contains(text(),'Your Profile')]";
 
 	// navbar items
 	String logo = "//a[@id='logo']";
@@ -88,6 +95,16 @@ public class BasePage {
 	String AffiliateProgram = "//a[contains(text(),'Affiliate Program')]";
 
 	String productsList = "//div[@id='search-list']/descendant::a";
+
+	// profilepage
+	String Inkbox_balance = "//form[@id='profile_form']/descendant::p[text()='Inkbucks Balance']";
+	String Inkbucks = "//form[@id='profile_form']/descendant::p[text()='150 inkbucks']";
+	String RewardsChapter = "//form[@id='profile_form']/descendant::p[text()='Rewards Chapter']";
+	String Chapter = "//form[@id='profile_form']/descendant::p[text()='Chapter 1']";
+	String Redeem_Rewards = "//form[@id='profile_form']/descendant::button[contains(text(),'Redeem Rewards')]";
+	String Name_textbox = "//input[@name='name']";
+	String Email_textbox = "//input[@name='email']";
+	String Sign_up_Checkbox = "//div[@id='profile']/descendant::input[@type='checkbox']";
 
 	public void AcctountIcon() {
 		try {
@@ -148,14 +165,15 @@ public class BasePage {
 	public void VerifyUserImage_Is_Changing_Or_Not() throws AWTException, InterruptedException {
 		ClickOnMyAccount();
 		ClickOnYourProfile();
-		
-		System.out.println("Image present :"+ControlHelpers.IsElementVisible(By.xpath("//form[@id='profile_form']/descendant::img")));
+
+		System.out.println("Image present :"
+				+ ControlHelpers.IsElementVisible(By.xpath("//form[@id='profile_form']/descendant::img")));
 		ControlHelpers.ButtonClick(By.xpath(ChangePhoto));
 
 		Thread.sleep(3000);
 		String driverpath = System.getProperty("user.dir");
 		StringSelection ss = new StringSelection(driverpath + "\\Resources\\inkboxImage1.jpg");
-	
+
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 		// Ctrl + v
@@ -170,14 +188,12 @@ public class BasePage {
 
 		Thread.sleep(5000);
 
-
-		
 		Thread.sleep(3000);
 		ControlHelpers.ButtonClick(By.xpath(ChangePhoto));
 
 		Thread.sleep(3000);
 		StringSelection ss2 = new StringSelection(driverpath + "\\Resources\\inkboxImage2.jpg");
-	
+
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss2, null);
 
 		// Ctrl + v
@@ -331,4 +347,290 @@ public class BasePage {
 		}
 
 	}
+
+	public void Vadidating_Header() {
+		List<WebElement> elements = ControlHelpers.getElementsList(By.xpath("//div[@id='nav-links']/div/a"));
+		String[] headerArray = { "SHOP", "TATTOO QUIZ", "CUSTOM", "COLLABS", "TRENDING", "FREEHAND INK", "SALE",
+				"HOW IT WORKS", "BTS | INKBOX" };
+		for (int i = 0; i < headerArray.length; i++) {
+			// System.out.println(headerArray[i]);
+			int visible = 0;
+			for (int j = 1; j < elements.size(); j++) {
+				int k = j + 1;
+				String xpath = "(//div[@id='nav-links']/div/a)[" + k + "]";
+				String elementName = ControlHelpers.getText(By.xpath(xpath));
+				if (elementName.equalsIgnoreCase(headerArray[i])) {
+					// System.out.println(elementName);
+					visible = 1;
+				}
+
+			}
+
+			if (visible == 1) {
+				test.log(LogStatus.PASS, headerArray[i] + " : is visible on Menubar");
+			} else {
+				test.log(LogStatus.FAIL, headerArray[i] + " : is not visible on Menubar");
+			}
+
+		}
+
+	}
+
+	public void Validate_Footer() {
+		String[] About_InkboxArray = { "Our Story", "Reviews", "Careers", "Press" };
+		
+		List<WebElement> About_InkboxElements = ControlHelpers.getElementsList(
+				By.xpath("//h4[contains(text(),'About Inkbox')]/following-sibling::ul/descendant::li/a"));
+		for (int i = 0; i < About_InkboxArray.length; i++) {
+			String name = null;
+			String url = null;
+			int visible = 0;
+
+			for (int j = 0; j < About_InkboxElements.size(); j++) {
+				int path = j + 1;
+				String About_Inkbox_xpath = "(//h4[contains(text(),'About Inkbox')]/following-sibling::ul/descendant::li/a)["
+						+ path + "]";
+				name = ControlHelpers.getText(By.xpath(About_Inkbox_xpath));
+				ControlHelpers.MoveToElement(By.xpath(About_Inkbox_xpath));
+				ControlHelpers.MoveToElementAndClick(By.xpath(About_Inkbox_xpath));
+				url = ControlHelpers.GetCurrentUrl();
+				url = url.toLowerCase().replace(" ", "").replace("-", "");
+				name = name.toLowerCase().replace(" ", "").replace("-", "");
+				if (url.contains(name)) {
+					visible = 1;
+					ControlHelpers.GetDriver().navigate().back();
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					// break;
+				}
+
+			}
+			if (visible == 1) {
+				// visible = 1;
+				test.log(LogStatus.PASS, name + " :is verified");
+			} else {
+				test.log(LogStatus.FAIL, "slected link is :" + name + " but navigated to :" + url);
+			}
+
+		}
+//		
+//		for (int i = 0; i < About_InkboxElements.size(); i++) {
+//         int k=i+1;
+//         String About_Inkbox_xpath="(//h4[contains(text(),'About Inkbox')]/following-sibling::ul/descendant::li/a)["+k+"]";
+//         System.out.println(ControlHelpers.getText(By.xpath(About_Inkbox_xpath)));
+//		}
+//		System.out.println("Customercare");
+//		List<WebElement> Customer_CareElements = ControlHelpers.getElementsList(
+//				By.xpath("//h4[contains(text(),'Customer Care')]/following-sibling::ul/descendant::li"));
+//		for (int i = 0; i < Customer_CareElements.size(); i++) {
+//	         int k=i+1;
+//	         String Customercare_xpath="(//h4[contains(text(),'Customer Care')]/following-sibling::ul/descendant::li/a)["+k+"]";
+//	         System.out.println(ControlHelpers.getText(By.xpath(Customercare_xpath)));
+//			}
+//		
+//		List<WebElement> OtherElements = ControlHelpers.getElementsList(
+//				By.xpath("//h4[contains(text(),'Other')]/following-sibling::ul/descendant::li/a"));
+//		System.out.println("Others");
+//		
+//		for (int i = 0; i < OtherElements.size(); i++) {
+//	         int k=i+1;
+//	         String OtherE_xpath="(//h4[contains(text(),'Other')]/following-sibling::ul/descendant::li/a)["+k+"]";
+//	         System.out.println(ControlHelpers.getText(By.xpath(OtherE_xpath)));
+//			}
+	}
+
+	public void Validating_MenuItems() {
+		ControlHelpers.ButtonClick(By.xpath(Login_Button));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		int yourProfile_status = ControlHelpers.IsElementPresent(By.xpath(YourProfile));
+		if (yourProfile_status > 0) {
+			test.log(LogStatus.PASS, "Your Profile is visible on Manubar");
+		} else {
+			test.log(LogStatus.FAIL, "Your Profile is not visible on Manubar");
+		}
+
+		int orderhistory_status = ControlHelpers.IsElementPresent(By.xpath(OrderHistory));
+		if (orderhistory_status > 0) {
+			test.log(LogStatus.PASS, "OrderHistory is visible on Manubar");
+		} else {
+			test.log(LogStatus.FAIL, "OrderHistory is not visible on Manubar");
+		}
+
+		int MyRewards_status = ControlHelpers.IsElementPresent(By.xpath(MyRewards));
+		if (MyRewards_status > 0) {
+			test.log(LogStatus.PASS, "My Rewards is visible on Manubar");
+		} else {
+			test.log(LogStatus.FAIL, "My Rewards is not visible on Manubar");
+		}
+
+		int MyFavorites_status = ControlHelpers.IsElementPresent(By.xpath(MyFavorites));
+		if (MyFavorites_status > 0) {
+			test.log(LogStatus.PASS, "My Favorites is visible on Manubar");
+		} else {
+			test.log(LogStatus.FAIL, "My Favorites is not visible on Manubar");
+		}
+
+	}
+
+	public void Validating_NavBar() {
+		int studentdiscount_status = ControlHelpers.IsElementPresent(By.xpath(Student_discount));
+		if (studentdiscount_status > 0) {
+			test.log(LogStatus.PASS, "Student Discount button is visible on Navbar");
+		} else {
+			test.log(LogStatus.FAIL, "Student Discount button is not visible on Navbar");
+		}
+
+		int help_status = ControlHelpers.IsElementPresent(By.xpath(Help));
+		if (help_status > 0) {
+			test.log(LogStatus.PASS, "Help button is visible on Navbar");
+		} else {
+			test.log(LogStatus.FAIL, "Help button is not visible on Navbar");
+		}
+
+		int UserIcon_status = ControlHelpers.IsElementPresent(By.xpath(Login_Button));
+		if (UserIcon_status > 0) {
+			test.log(LogStatus.PASS, "UserAccount button is visible on Navbar");
+		} else {
+			test.log(LogStatus.FAIL, "UserAccount button is not visible on Navbar");
+		}
+
+	}
+
+	public void ValidateProfile() {
+		ClickOnMyAccount();
+		ClickOnYourProfile();
+		int Inkbox_balance_status = ControlHelpers.IsElementPresent(By.xpath(Inkbox_balance));
+		if (Inkbox_balance_status > 0) {
+			test.log(LogStatus.PASS, "Inkbox balance is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "Inkbox balance is not visible on Profile page");
+		}
+
+		int Inkbucks_status = ControlHelpers.IsElementPresent(By.xpath(Inkbucks));
+		if (Inkbucks_status > 0) {
+			test.log(LogStatus.PASS, "Inkbucks is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "Inkbucks is not visible on Profile page");
+		}
+
+		int RewardsChapter_status = ControlHelpers.IsElementPresent(By.xpath(RewardsChapter));
+		if (RewardsChapter_status > 0) {
+			test.log(LogStatus.PASS, "RewardsChapter is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "RewardsChapter is not visible on Profile page");
+		}
+
+		int Chapter_status = ControlHelpers.IsElementPresent(By.xpath(Chapter));
+		if (Chapter_status > 0) {
+			test.log(LogStatus.PASS, "Chapter is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "Chapter is not visible on Profile page");
+		}
+
+		int Redeem_Rewards_status = ControlHelpers.IsElementPresent(By.xpath(Redeem_Rewards));
+		if (Redeem_Rewards_status > 0) {
+			test.log(LogStatus.PASS, "Redeem_Rewards is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "Redeem_Rewards is not visible on Profile page");
+		}
+
+		int Name_textbox_status = ControlHelpers.IsElementPresent(By.xpath(Name_textbox));
+		if (Name_textbox_status > 0) {
+			test.log(LogStatus.PASS, "First&Last Name textbox is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "First&Last Name textbox is not visible on Profile page");
+		}
+
+		int Email_textbox_status = ControlHelpers.IsElementPresent(By.xpath(Email_textbox));
+		if (Email_textbox_status > 0) {
+			test.log(LogStatus.PASS, "Email textbox is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "Email textbox is not visible on Profile page");
+		}
+
+		int ChangePassword_status = ControlHelpers.IsElementPresent(By.xpath(ChangePassword));
+		if (ChangePassword_status > 0) {
+			test.log(LogStatus.PASS, "ChangePassword is visible on Profile page");
+		} else {
+			test.log(LogStatus.FAIL, "ChangePassword is not visible on Profile page");
+		}
+		ControlHelpers.MoveToElement(By.xpath(Email_textbox));
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+//		boolean Sign_up_Checkbox_status=ControlHelpers.GetCheckBox_Status(By.xpath(Sign_up_Checkbox));
+//		System.out.println(Sign_up_Checkbox_status);
+//		System.out.println("Attribute value :"+ControlHelpers.getAttribute(By.xpath(Save), "disabled"));
+//		if(Sign_up_Checkbox_status)
+//		{
+//			boolean saveButton_Status=ControlHelpers.ElementIsDisableOrNot(By.xpath(Save));
+//			System.out.println("Save button :"+saveButton_Status);
+//			if(saveButton_Status)
+//		    {
+//				test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
+//		    }
+//		    else
+//		    {
+//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
+//		    	
+//		    }
+//		    ControlHelpers.MoveToElementAndClick(By.xpath(Sign_up_Checkbox));
+//		}
+//		else
+//		{
+//			boolean saveButton_Status=ControlHelpers.ElementIsEnableOrNot(By.xpath(Save));
+//		    if(saveButton_Status)
+//		    {
+//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
+//		    }
+//		    else
+//		    {
+//
+//		    	test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
+//		    }
+//		    ControlHelpers.ButtonClick(By.xpath(Sign_up_Checkbox));
+//		}
+
+//		boolean Sign_up_Checkbox_status2=ControlHelpers.GetCheckBox_Status(By.xpath(Sign_up_Checkbox));
+//		if(Sign_up_Checkbox_status2)
+//		{
+//			boolean saveButton_Status=ControlHelpers.ElementIsEnableOrNot(By.xpath(Save));
+//		    if(saveButton_Status)
+//		    {
+//		    	test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
+//		    }
+//		    else
+//		    {
+//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
+//		    }
+//		}
+//		else
+//		{
+//			boolean saveButton_Status=ControlHelpers.ElementIsEnableOrNot(By.xpath(Save));
+//		    if(saveButton_Status)
+//		    {
+//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
+//		    }
+//		    else
+//		    {
+//
+//		    	test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
+//		    }
+//		}
+	}
+
 }

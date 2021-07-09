@@ -15,6 +15,7 @@ import Helpers.ExtentFactory;
 import Helpers.LaunchDriver;
 import Helpers.Screenshots;
 import Inkbox.Pages.BasePage;
+import Inkbox.Pages.CartPage;
 import Inkbox.Pages.LoginPage;
 import Inkbox.Pages.ProductsPage;
 
@@ -55,7 +56,16 @@ public class ProductSearchTest extends LaunchDriver {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		ProductsPage productspage = new ProductsPage(test);
-		productspage.SortBySize();
+		String expected=productspage.SortBySize();
+		CartPage cartpage = new CartPage(test);
+		String actual=cartpage.GetProductsize();
+		if(expected.equalsIgnoreCase(actual))
+		{
+			test.log(LogStatus.PASS, "Product size in cart is same as selected size");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Selected size is :"+expected+ " but product size in Cart is :"+actual);
+		}
 	}
 	
 	

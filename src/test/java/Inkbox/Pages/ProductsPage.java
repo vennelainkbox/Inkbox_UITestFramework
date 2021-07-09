@@ -176,7 +176,7 @@ public class ProductsPage {
 
 	}
 
-	public void SortBySize() {
+	public String SortBySize() {
 
 		BasePage basePage = new BasePage(test);
 		basePage.Click_On_Shop();
@@ -203,14 +203,19 @@ public class ProductsPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String url = ControlHelpers.GetDriver().getCurrentUrl();
-		if (url.contains(size)) {
-			test.log(LogStatus.PASS, "Able to filter by size");
-		} else {
-			System.out.println("URL :" + url + " size :" + size);
-			test.log(LogStatus.ERROR, "Unnable to filter by size");
-			// Assert.fail();
-		}
+			
+		
+		String selectedProduct=SelectProductRandomly();
+		return size;
+		
+//		String url = ControlHelpers.GetDriver().getCurrentUrl();
+//		if (url.contains(size)) {
+//			test.log(LogStatus.PASS, "Able to filter by size");
+//		} else {
+//			System.out.println("URL :" + url + " size :" + size);
+//			test.log(LogStatus.ERROR, "Unnable to filter by size");
+//			// Assert.fail();
+//		}
 
 //		for (int i = 0; i < elements.size()-1; i++) {
 //			int j=i+1;
@@ -264,8 +269,26 @@ public class ProductsPage {
 		}
 	}
 
-	public void ValidatingPricingBlock() {
+	public String SelectProductRandomly()  {
+	int	random_number = ControlHelpers.getRandomNumber(getNumberOfProductsInPage(By.xpath(product_name)));
+	String	product_addToCart = "(//div[@id='browse']/descendant::div[starts-with(@id,'original')]/div[position()=2]/div/div[position()=1]/a)["
+				+ random_number + "]";
+		
+		//ProductAdded = ControlHelpers.getText(By.xpath(product_AddToCart));
+	String Productname = ControlHelpers.getText(By.xpath(product_addToCart));
+		
 
+	String	AddtoCart_xpath = "(//div[@id='browse']/descendant::div[starts-with(@id,'original')]/div[position()=2]/descendant::div/button[position()=1])["
+				+ random_number + "]";
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ControlHelpers.MoveToElementAndClick(By.xpath(AddtoCart_xpath));
+		return Productname;
 	}
 
 }
