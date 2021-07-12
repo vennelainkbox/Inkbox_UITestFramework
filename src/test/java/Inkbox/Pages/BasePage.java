@@ -577,7 +577,7 @@ public class BasePage {
 			         ControlHelpers.GetDriver().switchTo().window(parentWindow); //cntrl to parent window
 			          }
 			       }
-			if(URL.contains("https://www.pinterest.com/getinkbox/"))
+			if(URL.contains("https://www.pinterest.ca/"))
 			{
 				test.log(LogStatus.PASS,"pinterest link is redirected to :"+URL);
 			}
