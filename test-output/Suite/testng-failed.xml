@@ -7,13 +7,18 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <parameter name="URL" value="https://inkbox.com"/>
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
     <classes>
       <class name="Inkbox.Tests.HomePageTest">
         <methods>
-          <include name="AfterMethod"/>
           <include name="beforeMethod"/>
+          <include name="AfterMethod"/>
+          <include name="Verify_Display_of_Products_on_Homepage"/>
           <include name="beforeSuite"/>
-          <include name="Validate_Footer"/>
           <include name="beforeTest"/>
           <include name="BeforeMethod"/>
           <include name="afterMethod"/>

@@ -31,7 +31,7 @@ public class HomePageTest extends LaunchDriver {
 
 	
 	
-	@Test(groups = {"smoketest"})
+	@Test(groups = "smoketest")
 	public void Verify_Changepassword() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -47,14 +47,14 @@ public class HomePageTest extends LaunchDriver {
 //		basePage.VerifyUserImage_Is_Changing_Or_Not();
 //	}
 	 
-	@Test(groups = {"smoketest"})
+	@Test(groups = "regression")
 	public void Verify_Display_of_Products_on_Homepage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		HomePage homePage=new HomePage(test);
 		homePage.Validating_JustDrop_Products();
 	}
-	@Test(groups = {"smoketest"})
+	@Test(groups = "smoketest")
 	public void ProductsDisplayed_are_Clicable_And_Move_To_PDP() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -63,15 +63,15 @@ public class HomePageTest extends LaunchDriver {
 		productspage.Validate_Products_displayed_clickable();
 	}
 	
-	@Test(groups = {"smoketest"})
+	@Test(groups = "smoketest")
 	public void VerifypopularCategories() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		HomePage homePage=new HomePage(test);
 		homePage.ValidatePopularCategories();
 	}
-	@Test(groups = {"regression"})
-	public void Validating_Header() {
+	@Test(groups = "smoketest")
+	public void Validating_HomePage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		BasePage basePage=new BasePage(test);
@@ -80,19 +80,12 @@ public class HomePageTest extends LaunchDriver {
 		basePage.Validating_MenuItems();
 		
 	}
-	@Test(groups = {"smoketest"})
+	@Test(groups = "smoketest")
 	public void Validate_Footer() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		BasePage basePage=new BasePage(test);
 		basePage.ValidateFooter();
-	}
-	@Test(groups = {"smoketest"})
-	public void ValidateProfilePage() {
-		LoginPage loginPage = new LoginPage(test);
-		loginPage.UserLogin();
-		BasePage basePage=new BasePage(test);
-		basePage.ValidateProfile();
 	}
 	
 	@BeforeMethod(alwaysRun = true)
@@ -114,7 +107,6 @@ public class HomePageTest extends LaunchDriver {
 			String imagePath = test.addScreenCapture(path);
 			System.out.println(result.getThrowable());
 			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
-			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
 		}
 		report.endTest(test);
 		report.flush();

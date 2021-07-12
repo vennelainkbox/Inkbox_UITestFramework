@@ -935,65 +935,7 @@ public class BasePage {
 			e.printStackTrace();
 		}
 
-//		boolean Sign_up_Checkbox_status=ControlHelpers.GetCheckBox_Status(By.xpath(Sign_up_Checkbox));
-//		System.out.println(Sign_up_Checkbox_status);
-//		System.out.println("Attribute value :"+ControlHelpers.getAttribute(By.xpath(Save), "disabled"));
-//		if(Sign_up_Checkbox_status)
-//		{
-//			boolean saveButton_Status=ControlHelpers.ElementIsDisableOrNot(By.xpath(Save));
-//			System.out.println("Save button :"+saveButton_Status);
-//			if(saveButton_Status)
-//		    {
-//				test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
-//		    }
-//		    else
-//		    {
-//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
-//		    	
-//		    }
-//		    ControlHelpers.MoveToElementAndClick(By.xpath(Sign_up_Checkbox));
-//		}
-//		else
-//		{
-//			boolean saveButton_Status=ControlHelpers.ElementIsEnableOrNot(By.xpath(Save));
-//		    if(saveButton_Status)
-//		    {
-//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
-//		    }
-//		    else
-//		    {
-//
-//		    	test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
-//		    }
-//		    ControlHelpers.ButtonClick(By.xpath(Sign_up_Checkbox));
-//		}
 
-//		boolean Sign_up_Checkbox_status2=ControlHelpers.GetCheckBox_Status(By.xpath(Sign_up_Checkbox));
-//		if(Sign_up_Checkbox_status2)
-//		{
-//			boolean saveButton_Status=ControlHelpers.ElementIsEnableOrNot(By.xpath(Save));
-//		    if(saveButton_Status)
-//		    {
-//		    	test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
-//		    }
-//		    else
-//		    {
-//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
-//		    }
-//		}
-//		else
-//		{
-//			boolean saveButton_Status=ControlHelpers.ElementIsEnableOrNot(By.xpath(Save));
-//		    if(saveButton_Status)
-//		    {
-//		    	test.log(LogStatus.PASS, "Save button is in Disable when Sign_up checkbox is Checked");
-//		    }
-//		    else
-//		    {
-//
-//		    	test.log(LogStatus.FAIL, "Save button is in Enable when Sign_up checkbox is Checked");
-//		    }
-//		}
 	}
 
 }
