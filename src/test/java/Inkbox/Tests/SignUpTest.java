@@ -66,19 +66,19 @@ public class SignUpTest extends LaunchDriver {
 	}
 	
 
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void beforeClass() {
 		report = ExtentFactory.getInstance();
 		test = report.startTest("User SignUp");
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		report.endTest(test);
 		report.flush();
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void beforeTest(ITestResult testResult) throws IOException  {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			String path = Screenshots.takeScreenshot(getDriver(), testResult.getName());

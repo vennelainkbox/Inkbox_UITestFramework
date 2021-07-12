@@ -15,6 +15,7 @@ import Helpers.ExtentFactory;
 import Helpers.LaunchDriver;
 import Helpers.Screenshots;
 import Inkbox.Pages.BasePage;
+import Inkbox.Pages.CartPage;
 import Inkbox.Pages.LoginPage;
 import Inkbox.Pages.ProductsPage;
 
@@ -22,7 +23,7 @@ public class ProductSearchTest extends LaunchDriver {
 	ExtentTest test;
 	
 	
-	@Test(priority = 0)
+	@Test(groups = {"smoketest"})
 	public void Autosuggestion_Validation() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -33,7 +34,7 @@ public class ProductSearchTest extends LaunchDriver {
 		
 	}
 	
-	@Test(priority = 1)
+	@Test(groups = {"regression"})
 	public void SortByPriceLowToHigh() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -42,7 +43,7 @@ public class ProductSearchTest extends LaunchDriver {
 		productspage.ValidatePriceLowToHigh();
 	}
 	
-	@Test(priority = 2)
+	@Test(groups = {"smoketest"})
 	public void Verify_SearchResults() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -50,16 +51,25 @@ public class ProductSearchTest extends LaunchDriver {
 		productspage.Verify_Number_of_Searchresults();
 	}
 	
-	@Test(priority = 3)
+	@Test(groups = {"smoketest"})
 	public void SortBySize() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		ProductsPage productspage = new ProductsPage(test);
-		productspage.SortBySize();
+		String expected=productspage.SortBySize();
+		CartPage cartpage = new CartPage(test);
+		String actual=cartpage.GetProductsize();
+		if(expected.equalsIgnoreCase(actual))
+		{
+			test.log(LogStatus.PASS, "Product size in cart is same as selected size");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Selected size is :"+expected+ " but product size in Cart is :"+actual);
+		}
 	}
 	
 	
-	@Test(priority = 4)
+	@Test(groups = {"smoketest"})
 	public void ValidatePresentUrl_with_PreviousUrl() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -67,7 +77,7 @@ public class ProductSearchTest extends LaunchDriver {
 		basePage.Validate_PresentURL_With_PreviousURL();
 	}
 	
-	@Test(priority = 5)
+	@Test(groups = {"smoketest"})
 	public void ValidatePricingBlock() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -75,7 +85,7 @@ public class ProductSearchTest extends LaunchDriver {
 		productspage.Validating_PricingBlock();
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
 		
@@ -84,7 +94,7 @@ public class ProductSearchTest extends LaunchDriver {
 		test = report.startTest(result.getMethod().getMethodName());
 		
 	}
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void AfterMethod(ITestResult result) throws IOException
 	{
 		if (result.getStatus() == ITestResult.FAILURE) {

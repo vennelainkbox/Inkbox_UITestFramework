@@ -32,7 +32,7 @@ public class LoginTest extends LaunchDriver {
 	
 	
 
-	@Test(priority = 0)
+	@Test(groups = {"smoketest"})
 	public void LoginWithDirectUser() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -40,7 +40,7 @@ public class LoginTest extends LaunchDriver {
 		
 		
 	}
-	@Test(priority = 2)
+	@Test(groups = {"smoketest"})
 	public void LoginWithGoogle() {
 		
 		LoginPage loginPage = new LoginPage(test);
@@ -49,7 +49,7 @@ public class LoginTest extends LaunchDriver {
 		
 	}
 	
-	@Test(priority = 1)
+	@Test(groups = {"smoketest"})
 	public void LoginWithFacebook() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin_With_FaceBook();
@@ -71,7 +71,7 @@ public class LoginTest extends LaunchDriver {
 		}
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
 		
@@ -80,7 +80,7 @@ public class LoginTest extends LaunchDriver {
 		test = report.startTest(result.getMethod().getMethodName());
 		
 	}
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void AfterMethod(ITestResult result) throws IOException
 	{
 		if (result.getStatus() == ITestResult.FAILURE) {

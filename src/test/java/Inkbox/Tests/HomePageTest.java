@@ -28,18 +28,10 @@ public class HomePageTest extends LaunchDriver {
 	ProductsPage productspage;
 	
 	LoginPage loginPage;
-	
-//	@Test(priority = 0)
-//	public void Verify_UserImage_Changepassword() {
-//		LoginPage loginPage = new LoginPage(test);
-//		loginPage.UserLogin();
-//		BasePage basePage=new BasePage(test);
-//		basePage.VerifyUserImage_Is_Changing_Or_Not();
-//		basePage.verifyChangePassword();
-//	}
+
 	
 	
-	@Test(priority = 0)
+	@Test(groups = {"smoketest"})
 	public void Verify_Changepassword() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -55,14 +47,14 @@ public class HomePageTest extends LaunchDriver {
 //		basePage.VerifyUserImage_Is_Changing_Or_Not();
 //	}
 	 
-	@Test(priority = 1)
+	@Test(groups = {"smoketest"})
 	public void Verify_Display_of_Products_on_Homepage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		HomePage homePage=new HomePage(test);
 		homePage.Validating_JustDrop_Products();
 	}
-	@Test(priority = 2)
+	@Test(groups = {"smoketest"})
 	public void ProductsDisplayed_are_Clicable_And_Move_To_PDP() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -71,15 +63,39 @@ public class HomePageTest extends LaunchDriver {
 		productspage.Validate_Products_displayed_clickable();
 	}
 	
-	@Test(priority = 3)
+	@Test(groups = {"smoketest"})
 	public void VerifypopularCategories() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
 		HomePage homePage=new HomePage(test);
 		homePage.ValidatePopularCategories();
 	}
+	@Test(groups = {"regression"})
+	public void Validating_Header() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.Vadidating_Header();
+		basePage.Validating_NavBar();
+		basePage.Validating_MenuItems();
+		
+	}
+	@Test(groups = {"smoketest"})
+	public void Validate_Footer() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.ValidateFooter();
+	}
+	@Test(groups = {"smoketest"})
+	public void ValidateProfilePage() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.ValidateProfile();
+	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
 		
@@ -90,7 +106,7 @@ public class HomePageTest extends LaunchDriver {
 		
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void AfterMethod(ITestResult result) throws IOException
 	{
 		if (result.getStatus() == ITestResult.FAILURE) {

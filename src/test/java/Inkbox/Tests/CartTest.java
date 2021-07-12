@@ -21,7 +21,7 @@ import Inkbox.Pages.ProductsPage;
 
 public class CartTest extends LaunchDriver {
 	ExtentTest test;
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
 		
@@ -30,7 +30,7 @@ public class CartTest extends LaunchDriver {
 		test = report.startTest(result.getMethod().getMethodName());
 		
 	}
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void AfterMethod(ITestResult result) throws IOException
 	{
 		if (result.getStatus() == ITestResult.FAILURE) {
@@ -44,21 +44,19 @@ public class CartTest extends LaunchDriver {
 		report.flush();
 	}
 	
-	@Test(priority = 0)
+	@Test(groups = {"smoketest"})
 	public void ValidateItems_Adding_To_Cart() {
 		AddingItemsTocart();
 	
 	}
 	
-	@Test(priority = 1)
+	@Test(groups = {"smoketest"})
 	public void IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart() {
 		AddingItemsTocart();
 	
 		CartPage cartpage = new CartPage(test);
 		cartpage.IncrementTheProductInCart();
 		cartpage.RemoveItemsFromCart();
-//		BasePage basePage=new BasePage(test);
-//		basePage.Logout();
 		int count =cartpage.VerifyCartIsEmpty();
 		if (count == 0) {
 			test.log(LogStatus.PASS, "Cart is Empty");
@@ -106,7 +104,7 @@ public class CartTest extends LaunchDriver {
 		}
 	}
 	
-	@Test(priority = 2)
+	@Test(groups = {"smoketest"})
 	public void VerifyFreeShippingMessage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -134,7 +132,7 @@ public class CartTest extends LaunchDriver {
 		
 	}
 	
-	@Test(priority = 3)
+	@Test(groups = {"smoketest"})
 	public void AddItemsToCart_without_Login_and_ValidateAfterLogin() {
 		Ads ads = new Ads(test);
 		try {

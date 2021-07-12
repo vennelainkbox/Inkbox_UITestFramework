@@ -88,14 +88,14 @@ public class LaunchDriver {
 //
 //	}
 	
-	@BeforeTest
+	@BeforeTest(alwaysRun = true)
 	public void beforeTest() {
 
 		report = ExtentFactory.getInstance();
 	}
 
 	@Parameters({ "browser", "URL" })
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod(String browser, String URL) {
 		driver = WebdriverFactory.getDriverInstance(browser, URL);
 		ControlHelpers controlHelpers = new ControlHelpers(driver);
@@ -103,14 +103,14 @@ public class LaunchDriver {
 		setReportPath(reportPath);
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void afterMethod() {
 		driver.close();
 		driver.quit();
 
 	}
 
-	@BeforeSuite
+	@BeforeSuite(alwaysRun = true)
 	public void beforeSuite() throws IOException {
 		Move_Report_To_OldReport();
 		getpassword_configFile();

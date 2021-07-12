@@ -3,11 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="BaseTest.Base">
+      <class name="Inkbox.Tests.LoginTest">
         <methods>
-          <include name="Setup"/>
+          <include name="beforeMethod"/>
+          <include name="AfterMethod"/>
+          <include name="BeforeMethod"/>
+          <include name="beforeSuite"/>
+          <include name="LoginWithDirectUser"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- BaseTest.Base -->
+      </class> <!-- Inkbox.Tests.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

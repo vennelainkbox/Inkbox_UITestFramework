@@ -34,6 +34,12 @@ public class HomePage {
 	}
 	
 	public void Validating_JustDrop_Products() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		int randomNumber=ControlHelpers.getRandomNumber(4);
 		String productXpath="((//div[contains(@class,'section')]/descendant::h1[contains(text(),'Just Dropped')]/parent::div/parent::div/following-sibling::div[contains(@id,'container')]/descendant::div[@class='trayItem'])["+randomNumber+"]/descendant::a)[2]";
 		String selectedProductName=ControlHelpers.getText(By.xpath(productXpath));
