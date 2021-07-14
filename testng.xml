@@ -17,7 +17,6 @@
 			<class name="Inkbox.Tests.HomePageTest" />
 			<class name="Inkbox.Tests.ProductSearchTest" />
 			<class name="Inkbox.Tests.CartTest"/>
-			
 		</classes>
 	</test> <!-- Test -->
 

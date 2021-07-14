@@ -8,11 +8,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+
+import com.relevantcodes.extentreports.LogStatus;
 
 public class Base {
 
@@ -21,8 +24,15 @@ public class Base {
 		String[] headerArray = { "SHOP", "TATTOO QUIZ", "CUSTOM", "COLLABS", "TRENDING", "FREEHAND INK", "SALE",
 				"HOW IT WORKS", "BTS | INKBOX" };
 
-		for (int i = 0; i < headerArray.length; i++) {
-        System.out.println(headerArray[i]);
+		int[] pricelist = {7,6,8,5,4,3};
+		
+		for (int i = 0; i < pricelist.length-1; i++) {
+
+			if (pricelist[i] < pricelist[i + 1]) {
+				 System.out.println("false :" + pricelist[i+1]);
+				
+			}
+
 		}
 
 	}

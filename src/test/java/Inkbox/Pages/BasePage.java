@@ -5,19 +5,23 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Helpers.ControlHelpers;
 import Helpers.LaunchDriver;
+import Helpers.Screenshots;
 
 public class BasePage {
 	ExtentTest test;
@@ -89,6 +93,9 @@ public class BasePage {
 	String YouTube = "((//a/span[text()='Instagram']/parent::a)[1]/following-sibling::a)[3]";
 	String Twitter = "(//a/span[text()='Twitter']/parent::a)[1]";
 	String Tiktok = "((//a/span[text()='Instagram']/parent::a)[1]/following-sibling::a)[5]";
+	String Get_free_tattoos = "//span[contains(text(),'get free tattoos')]";
+	String Terms_of_Service = "(//div[contains(@class,'bottom-container')]/descendant::a[text()='Terms of Service'])[1]";
+	String Privacy_Policy = "(//div[contains(@class,'bottom-container')]/descendant::a[text()='Privacy Policy'])[1]";
 
 	String our_storys = "//*[@id=\"site-content\"]/main/footer/div/div[1]/div/div[2]/div[1]/div[1]/ul/li[1]/a";
 	String Our_Story = "//a[contains(text(),'Our Story')]";
@@ -148,6 +155,7 @@ public class BasePage {
 	}
 
 	public void AutoSuggestValidation() {
+		SoftAssert softAssert=new SoftAssert();
 		List<WebElement> elements = ControlHelpers.getElementsList(By.xpath(productsList));
 
 		for (WebElement webElement : elements) {
@@ -156,10 +164,12 @@ public class BasePage {
 			if (expecstring.contains(searchtext)) {
 				test.log(LogStatus.INFO, expecstring + " : is validated");
 			} else {
-				test.log(LogStatus.ERROR, expecstring + " : is validated");
+				test.log(LogStatus.ERROR, "Searching for :"+searchtext+" but getting value :"+expecstring);
+				softAssert.fail();
 			}
 
 		}
+		softAssert.assertAll();
 
 	}
 
@@ -199,14 +209,33 @@ public class BasePage {
 		Thread.sleep(5000);
 
 		Thread.sleep(3000);
+		ControlHelpers.JavaScriptExecutor_Button_Click(By.xpath(Save));
+		Thread.sleep(5000);
+		String path = null;
+		try {
+			path = Screenshots.takeScreenshot(ControlHelpers.GetDriver(), "Upload_Profile_Image");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		test.log(LogStatus.INFO, "Profile image Updated");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.PASS, "Profile image Updated", imagePath);
+		
+		ControlHelpers.JavaScriptExecutor_Button_Click(By.xpath(Logout));
+		Thread.sleep(5000);
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.Login();
+		
+		
+		ClickOnMyAccount();
+		ClickOnYourProfile();
 		ControlHelpers.ButtonClick(By.xpath(ChangePhoto));
-
 		Thread.sleep(3000);
 		StringSelection ss2 = new StringSelection(driverpath + "\\Resources\\inkboxImage2.jpg");
 
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss2, null);
 
-		// Ctrl + v
 		Robot robot2 = new Robot();
 		robot2.keyPress(KeyEvent.VK_CONTROL);
 		robot2.keyPress(KeyEvent.VK_V);
@@ -217,19 +246,17 @@ public class BasePage {
 		robot2.keyRelease(KeyEvent.VK_ENTER);
 
 		Thread.sleep(5000);
+		String path2 = null;
+		try {
+			path2 = Screenshots.takeScreenshot(ControlHelpers.GetDriver(), "Change_Profile_Image");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		test.log(LogStatus.INFO, "Profile image Changed");
+		String imagePath2 = test.addScreenCapture(path2);
+		test.log(LogStatus.PASS, "Profile image Changed", imagePath2);
+		
 
-//		String src2 = ControlHelpers.GetDriver().findElement(By.xpath("//form[@id='profile_form']/descendant::img"))
-//				.getAttribute("src");
-//		System.out.println("second img :"+src2);
-
-//		boolean visiblility = ControlHelpers.IsElementVisible(By.xpath(ChangePhoto));
-//		System.out.println("Icon displayed :" + visiblility);
-//		if (!visiblility) {
-//			test.log(LogStatus.ERROR, "User image (Inkbucks) are not displayed in profile after login");
-//
-//		} else {
-//			test.log(LogStatus.PASS, "User image (Inkbucks) are displayed in profile after login");
-//		}
 	}
 
 	public void Logout() {
@@ -296,6 +323,61 @@ public class BasePage {
 //		}
 	}
 
+	public void ValidateSearchResults() {
+		ControlHelpers.ButtonClick(By.xpath(Search_textbox));
+		ControlHelpers.Entertext(By.xpath(Search_textbox), "flowers");
+		ControlHelpers.getElement(By.xpath(Search_textbox)).sendKeys(Keys.ENTER);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String URL_flowers=ControlHelpers.GetCurrentUrl();
+		if(URL_flowers.contains("flowers"))
+		{
+			test.log(LogStatus.PASS, "Searching for Flowers and it is redirected to :"+URL_flowers);
+		}
+		else {
+			test.log(LogStatus.ERROR, "Searching for Flowers and it is redirected to :"+URL_flowers);
+		}
+		
+		ControlHelpers.ButtonClick(By.xpath(Search_textbox));
+		ControlHelpers.Entertext(By.xpath(Search_textbox), "insects");
+		ControlHelpers.getElement(By.xpath(Search_textbox)).sendKeys(Keys.ENTER);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String URL_insects=ControlHelpers.GetCurrentUrl();
+		if(URL_insects.contains("insects"))
+		{
+			test.log(LogStatus.PASS, "Searching for Insects and it is redirected to :"+URL_insects);
+		}
+		else {
+			test.log(LogStatus.ERROR, "Searching for Insects and it is redirected to :"+URL_insects);
+		}
+		
+		ControlHelpers.ButtonClick(By.xpath(Search_textbox));
+		ControlHelpers.Entertext(By.xpath(Search_textbox), "quotes");
+		ControlHelpers.getElement(By.xpath(Search_textbox)).sendKeys(Keys.ENTER);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String URL_quotes=ControlHelpers.GetCurrentUrl();
+		if(URL_quotes.contains("quotes"))
+		{
+			test.log(LogStatus.PASS, "Searching for quotes and it is redirected to :"+URL_insects);
+		}
+		else {
+			test.log(LogStatus.ERROR, "Searching for quotes and it is redirected to :"+URL_insects);
+		}
+	}
 	public void validate_SearchBox_Acceptence() {
 		try {
 			Thread.sleep(5000);
@@ -391,7 +473,88 @@ public class BasePage {
 		Validate_FacebookLink_Footer();
 		Validate_TwitterLink_Footer();
 		Tiktok_TwitterLink_Footer();
+		Validate_GetFreeTattoos_Footer();
+		Validate_Privacy_Policy_Footer();
+		Validate_Terms_of_Service_Footer();
+//		Validate_Rating_box_Footer();
 				
+	}
+	public void Validate_Shop_Menubar() {
+		ControlHelpers.HoverOver(By.xpath(Shop));
+		String[] Shop_Array = { "Best Sellers", "New Tattoos", "Picked For You", "Instagram","Bundles" };
+		
+		List<WebElement> Shop_elements = ControlHelpers.getElementsList(By.xpath("//li[@class='menu-L1']/ul/span[text()='Shop']/following-sibling::li/a"));
+		for (int i = 0; i < Shop_Array.length; i++)
+		{
+			String elementName = null;
+			String Url = null;
+			int visible = 0;
+			for (int j = 0; j < Shop_elements.size(); j++)
+			{
+				int k = j + 1;
+				String xpath = "(//li[@class='menu-L1']/ul/span[text()='Shop']/following-sibling::li/a)[" + k + "]";
+			    elementName = ControlHelpers.getText(By.xpath(xpath));
+			    if (elementName.equalsIgnoreCase(Shop_Array[i]))
+			    {
+			    	visible = 1;
+			    	break;
+			    }
+			}
+			if (visible == 1) 
+			{
+				test.log(LogStatus.PASS, Shop_Array[i] + " : is  visible under Shop");
+			}
+			else {
+				test.log(LogStatus.PASS, Shop_Array[i] + " : is  visible under Shop");
+			}
+		}
+
+		
+	}
+	
+	// Terms_of_Service validation
+		public void Validate_Terms_of_Service_Footer() {
+			int Terms_of_Service_status = ControlHelpers.IsElementPresent(By.xpath(Terms_of_Service));
+			if (Terms_of_Service_status > 0) {
+				test.log(LogStatus.PASS, "Terms of Service is visible on Footer");
+			} else {
+				test.log(LogStatus.FAIL, "Terms of Service is not visible on Footer");
+			}
+		}
+	
+	// Privacy_Policy validation
+		public void Validate_Privacy_Policy_Footer() {
+			int Privacy_Policy_status = ControlHelpers.IsElementPresent(By.xpath(Privacy_Policy));
+			if (Privacy_Policy_status > 0) {
+				test.log(LogStatus.PASS, "Privacy Policy is visible on Footer");
+			} else {
+				test.log(LogStatus.FAIL, "Privacy Policy is not visible on Footer");
+			}
+		}
+	
+	public void Validate_GetFreeTattoos_Footer() {
+		ControlHelpers.SwitchToFrame("talkable-offer-iframe");
+		int Get_free_tattoos_status = ControlHelpers.IsElementPresent(By.xpath(Get_free_tattoos));
+		if (Get_free_tattoos_status > 0) {
+			test.log(LogStatus.INFO, "GET FREE TATTOOS is visible on Footer");
+			ControlHelpers.ButtonClick(By.xpath(Get_free_tattoos));
+			ControlHelpers.SwitchToDefault();
+			ControlHelpers.SwitchToFrame("talkable-offer-iframe-popup");
+			int Get_free_tattoos_page_status = ControlHelpers.IsElementPresent(
+					By.xpath("//div[@class='content']/descendant::h1[contains(text(),'Get a Free Tattoo')]"));
+			if (Get_free_tattoos_page_status > 0) {
+				test.log(LogStatus.PASS, "GET FREE TATTOOS page  is visible when clicked on GetFreeTattoos button.");
+				ControlHelpers.ButtonClick(By.xpath("//div[@class='popup-close js-offer-close is-solid']"));
+				ControlHelpers.SwitchToDefault();
+			} else {
+				test.log(LogStatus.ERROR,
+						"GET FREE TATTOOS page  is not visible when clicked on GetFreeTattoos button.");
+			}
+//			String etext=ControlHelpers.getText(By.xpath("//div[@class='content']/descendant::h1[contains(text(),'Get a Free Tattoo')]"));
+//			System.out.println(etext);
+		} else {
+			test.log(LogStatus.FAIL, "GET FREE TATTOOS is not visible on Footer");
+		}
 	}
 
 	// Email textbox validation

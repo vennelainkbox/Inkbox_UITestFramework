@@ -40,26 +40,36 @@ public class HomePage {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		int randomNumber=ControlHelpers.getRandomNumber(4);
-		String productXpath="((//div[contains(@class,'section')]/descendant::h1[contains(text(),'Just Dropped')]/parent::div/parent::div/following-sibling::div[contains(@id,'container')]/descendant::div[@class='trayItem'])["+randomNumber+"]/descendant::a)[2]";
-		String selectedProductName=ControlHelpers.getText(By.xpath(productXpath));
-		//ControlHelpers.ButtonClick(By.xpath(productXpath));
-		ControlHelpers.JavaScriptExecutor_Button_Click(By.xpath(productXpath));
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		String redirectedProduct=ControlHelpers.getText(By.xpath("//main/descendant::div[contains(@class,'items-center')]/h3"));
-		if(selectedProductName.contains(redirectedProduct))
+		int ispresent=ControlHelpers.IsElementPresent(By.xpath("//div[contains(@class,'section')]/descendant::h1[contains(text(),'Just Dropped')]"));
+		if(ispresent > 0)
 		{
-			test.log(LogStatus.PASS, "Display of products on homepage of JustDropped is success");
+			int randomNumber=ControlHelpers.getRandomNumber(4);
+			String productXpath="((//div[contains(@class,'section')]/descendant::h1[contains(text(),'Just Dropped')]/parent::div/parent::div/following-sibling::div[contains(@id,'container')]/descendant::div[@class='trayItem'])["+randomNumber+"]/descendant::a)[2]";
+			String selectedProductName=ControlHelpers.getText(By.xpath(productXpath));
+			//ControlHelpers.ButtonClick(By.xpath(productXpath));
+			ControlHelpers.JavaScriptExecutor_Button_Click(By.xpath(productXpath));
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			String redirectedProduct=ControlHelpers.getText(By.xpath("//main/descendant::div[contains(@class,'items-center')]/h3"));
+			if(selectedProductName.contains(redirectedProduct))
+			{
+				test.log(LogStatus.PASS, "Display of products on homepage of JustDropped is success");
+			}
+			else {
+				test.log(LogStatus.FAIL, "Display of products on homepage of JustDropped is :"+selectedProductName+ " is differ from redirected product :"+redirectedProduct);
+			}
 		}
 		else {
-			test.log(LogStatus.FAIL, "Display of products on homepage of JustDropped is :"+selectedProductName+ " is differ from redirected product :"+redirectedProduct);
+			test.log(LogStatus.INFO, "Just Dropped section is not present on HomePage");
 		}
+		
+		
 	}
 
 	public void ValidatePopularCategories() {

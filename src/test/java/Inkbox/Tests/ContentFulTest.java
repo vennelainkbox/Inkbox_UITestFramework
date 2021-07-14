@@ -1,15 +1,10 @@
 package Inkbox.Tests;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentTest;
@@ -19,59 +14,10 @@ import Helpers.ControlHelpers;
 import Helpers.ExtentFactory;
 import Helpers.LaunchDriver;
 import Helpers.Screenshots;
-import Helpers.WebdriverFactory;
-import Inkbox.Pages.Ads;
-import Inkbox.Pages.BasePage;
-import Inkbox.Pages.LoginPage;
+import Inkbox.Pages.ContentfulPage;
 
-public class LoginTest extends LaunchDriver {
-	
+public class ContentFulTest extends LaunchDriver {
 	ExtentTest test;
-	
-	
-	
-	
-
-	@Test(groups = {"smoketest"})
-	public void LoginWithDirectUser() {
-		LoginPage loginPage = new LoginPage(test);
-		loginPage.UserLogin();
-		Loginvalidation();
-		
-		
-	}
-	
-	@Test(groups = {"smoketest"})
-	public void LoginWithGoogle() {
-		
-		LoginPage loginPage = new LoginPage(test);
-		loginPage.UserLogin_With_Google();
-		Loginvalidation();
-		
-	}
-	
-	@Test(groups = {"smoketest"})
-	public void LoginWithFacebook() {
-		LoginPage loginPage = new LoginPage(test);
-		loginPage.UserLogin_With_FaceBook();
-		Loginvalidation();
-	}
-	
-
-	public void Loginvalidation() {
-		BasePage basePage=new BasePage(test);
-		boolean userLogin=basePage.VerifyAccountLogin();
-		if(userLogin)
-		{
-			test.log(LogStatus.PASS, "Login Success");
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Login fail");
-			Assert.fail("Login fail");
-		}
-	}
-	
 	@BeforeMethod(alwaysRun = true)
 	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
@@ -94,5 +40,12 @@ public class LoginTest extends LaunchDriver {
 		report.endTest(test);
 		report.flush();
 	}
-
+	
+	@Test
+	public void Login() {
+		ControlHelpers.GetDriver().get("https://www.contentful.com/");
+		ContentfulPage contentfulPage=new ContentfulPage(test);
+		contentfulPage.Contentful_Login();
+		
+	}
 }

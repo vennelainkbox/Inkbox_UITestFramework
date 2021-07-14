@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -44,6 +45,7 @@ public class ProductsPage {
 	String products_Under_Shop = "//li[@id='menu-L0-shop']/descendant::ul/span[text()='Shop']/parent::ul/child::li/a";
 	String Sort_By = "//button/span[text()='Sort By']";
 	String PriceLow_High = "//div[@class='py-1']/ul/li/label/span[text()='Price: Low - High']";
+	String PriceHigh_low = "//div[@class='py-1']/ul/li/label/span[text()='Price: High - Low']";
 	String Sort_By_Size = "//div[@id='size']/descendant::label";
 	String Additem = "//button[@id='cart-item-add']";
 	String PricingBlock = "(//div[@id='stop-sticky']/preceding::div)[last()]/p/parent::div";
@@ -53,6 +55,8 @@ public class ProductsPage {
 		int elementsSize = elements.size();
 		return elementsSize;
 	}
+	
+	//adding products randomly to cart
 
 	public void selectProductRandomly_AddToCart() {
 		try {
@@ -98,7 +102,22 @@ public class ProductsPage {
 		ControlHelpers.ButtonClick(By.xpath(PriceLow_High));
 
 	}
+	
+	public void SortByHighToLow()
+	{
+		BasePage basePage = new BasePage(test);
+		basePage.Click_On_Shop();
 
+		// ControlHelpers.ClickEnter(By.xpath(Search_textbox));
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ControlHelpers.ButtonClick(By.xpath(Sort_By));
+		ControlHelpers.ButtonClick(By.xpath(PriceHigh_low));
+	}
 	public void ValidatePriceLowToHigh() {
 		try {
 			Thread.sleep(3000);
@@ -133,6 +152,47 @@ public class ProductsPage {
 		if (k != 1) {
 			test.log(LogStatus.PASS, "Able to sort by price low/high");
 		}
+	}
+	
+	public void ValidatePriceHighToLow()
+	{
+		SoftAssert softAssert=new SoftAssert();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ArrayList<Double> pricelist = new ArrayList<Double>();
+		List<WebElement> products = ControlHelpers.getElementsList(By.xpath(product_price));
+		for (int i = 0; i < products.size(); i++) {
+			int j = i + 1;
+			String pricePath = "(//div[@id='browse']/descendant::div[starts-with(@id,'original')]/div[position()=2]/descendant::div[starts-with(@class,'productCard-price')])["
+					+ j + "]";
+			String path = ControlHelpers.getText(By.xpath(pricePath));
+			path = path.replace("$", "").replace("USD", "").replace("CAD", "");
+			path = path.trim();
+			// System.out.println(path);
+			double price = Double.parseDouble(path);
+			pricelist.add(price);
+		}
+		int k = 0;
+		for (int i = 0; i < pricelist.size() - 1; i++) {
+
+			if (pricelist.get(i) < pricelist.get(i + 1)) {
+				// System.out.println("false :" + pricelist.get(i));
+				test.log(LogStatus.ERROR, "Price is not Sorted by High To Low :"+pricelist.get(i + 1));
+				k = 1;
+				softAssert.fail();
+			}
+
+		}
+
+		if (k != 1) {
+			test.log(LogStatus.PASS, "Able to sort by price High To Low");
+		}
+		softAssert.assertAll();
+
 	}
 
 	public void Verify_Number_of_Searchresults() {

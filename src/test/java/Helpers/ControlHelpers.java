@@ -52,6 +52,14 @@ public class ControlHelpers extends LaunchDriver {
 		return element = driver.findElement(locator);
 	}
 
+	public static void SwitchToFrame(String name) {
+		driver.switchTo().frame(name);
+	}
+
+	public static void SwitchToDefault() {
+		driver.switchTo().defaultContent();
+	}
+
 	public static void ButtonClick(By locator) {
 
 		try {
@@ -164,9 +172,8 @@ public class ControlHelpers extends LaunchDriver {
 		}
 
 	}
-	
-	public static void MoveToElement(By locator)
-	{
+
+	public static void MoveToElement(By locator) {
 		WebElement element = GetWebElement(locator);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -218,6 +225,10 @@ public class ControlHelpers extends LaunchDriver {
 		}
 
 	}
+	
+	public static WebElement getElement(By locator) {
+		return driver.findElement(locator);
+	}
 
 	public static String WaitForElementAndGetText(By locator) {
 //		WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -267,19 +278,20 @@ public class ControlHelpers extends LaunchDriver {
 	public static boolean GetCheckBox_Status(By locator) {
 		return driver.findElement(locator).isSelected();
 	}
-	
+
 	public static boolean ElementIsEnableOrNot(By locator) {
-		return	driver.findElement(locator).isEnabled();
+		return driver.findElement(locator).isEnabled();
 	}
+
 	public static boolean ElementIsDisableOrNot(By locator) {
-		//return	driver.findElement(locator).isDisplayed();
+		// return driver.findElement(locator).isDisplayed();
 		WebElement element = GetWebElement(locator);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-	return	(boolean) js.executeScript("return arguments[0].hasAttribute(\"disabled\");", element);
-		
+		return (boolean) js.executeScript("return arguments[0].hasAttribute(\"disabled\");", element);
+
 	}
-	
-	public static String getAttribute(By locator,String attributevalue) {
+
+	public static String getAttribute(By locator, String attributevalue) {
 		return driver.findElement(locator).getAttribute(attributevalue);
 	}
 }

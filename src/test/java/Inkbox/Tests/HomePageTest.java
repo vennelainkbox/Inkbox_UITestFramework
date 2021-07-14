@@ -26,90 +26,97 @@ import Inkbox.Pages.ProductsPage;
 public class HomePageTest extends LaunchDriver {
 	ExtentTest test;
 	ProductsPage productspage;
-	
+
 	LoginPage loginPage;
 
-	
-	
 	@Test(groups = "smoketest")
 	public void Verify_Changepassword() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		BasePage basePage=new BasePage(test);
+		BasePage basePage = new BasePage(test);
 		basePage.verifyChangePassword();
 	}
-	
-//	@Test
-//	public void UserImageChangingOrNot() throws AWTException, InterruptedException {
-//		LoginPage loginPage = new LoginPage(test);
-//		loginPage.UserLogin();
-//		BasePage basePage=new BasePage(test);
-//		basePage.VerifyUserImage_Is_Changing_Or_Not();
-//	}
-	 
+
+	@Test(groups = "smoketest")
+	public void UserImageChangingOrNot() throws AWTException, InterruptedException {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage = new BasePage(test);
+		basePage.VerifyUserImage_Is_Changing_Or_Not();
+	}
+
+	@Test(groups = "smoketest")
+	public void Verify_Shop() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage = new BasePage(test);
+		basePage.Validate_Shop_Menubar();
+	}
+
 	@Test(groups = "regression")
 	public void Verify_Display_of_Products_on_Homepage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		HomePage homePage=new HomePage(test);
+		HomePage homePage = new HomePage(test);
 		homePage.Validating_JustDrop_Products();
 	}
+
 	@Test(groups = "smoketest")
 	public void ProductsDisplayed_are_Clicable_And_Move_To_PDP() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		
+
 		productspage = new ProductsPage(test);
 		productspage.Validate_Products_displayed_clickable();
 	}
-	
+
 	@Test(groups = "smoketest")
 	public void VerifypopularCategories() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		HomePage homePage=new HomePage(test);
+		HomePage homePage = new HomePage(test);
 		homePage.ValidatePopularCategories();
 	}
+
 	@Test(groups = "smoketest")
 	public void Validating_HomePage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		BasePage basePage=new BasePage(test);
+		BasePage basePage = new BasePage(test);
 		basePage.Vadidating_Header();
 		basePage.Validating_NavBar();
 		basePage.Validating_MenuItems();
-		
+
 	}
+
 	@Test(groups = "smoketest")
 	public void Validate_Footer() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
-		BasePage basePage=new BasePage(test);
+		BasePage basePage = new BasePage(test);
 		basePage.ValidateFooter();
 	}
-	
+
 	@BeforeMethod(alwaysRun = true)
 	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
-		
 		report = ExtentFactory.getInstance();
-		
+
 		System.out.println(result.getMethod().getMethodName());
 		test = report.startTest(result.getMethod().getMethodName());
-		
+
 	}
-	
+
 	@AfterMethod(alwaysRun = true)
-	public void AfterMethod(ITestResult result) throws IOException
-	{
+	public void AfterMethod(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
 			String imagePath = test.addScreenCapture(path);
 			System.out.println(result.getThrowable());
-			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
+			test.log(LogStatus.FAIL, result.getThrowable().toString(), imagePath);
 		}
 		report.endTest(test);
 		report.flush();
-		
+
 	}
 }
