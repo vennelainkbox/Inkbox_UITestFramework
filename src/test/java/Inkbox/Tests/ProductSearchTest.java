@@ -42,6 +42,15 @@ public class ProductSearchTest extends LaunchDriver {
 		basePage.AutoSuggestValidation();
 
 	}
+	
+	@Test(groups = { "smoketest" })
+	public void EmptySearchBox_Validation() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage = new BasePage(test);
+		basePage.Verify_Emptysearch();
+		
+	}
 
 	@Test(groups = { "smoketest" })
 	public void SearchResults_Validation() {

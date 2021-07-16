@@ -2,6 +2,7 @@ package Helpers;
 
 import org.testng.annotations.Test;
 
+import com.opencsv.CSVWriter;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,7 +42,17 @@ public class LaunchDriver {
 	 static public String password=null;
 	// ExtentTest test;
 
+	 static	String gmail_Facebook_Username;
+
 	
+
+	public static String getGmail_Facebook_Username() {
+		return gmail_Facebook_Username;
+	}
+
+	public static void setGmail_Facebook_Username(String gmail_Facebook_Username) {
+		LaunchDriver.gmail_Facebook_Username = gmail_Facebook_Username;
+	}
 
 	public String getReportPath() {
 		return reportPath;
@@ -119,6 +131,7 @@ public class LaunchDriver {
 		getusername_configFile();
 		getpassword_configFile();
 		get_gmail_facebok_password_configFile();
+		get_gmailFacebookusername_configFile();
 	}
 	public void getusername_configFile() throws IOException
 	{
@@ -128,6 +141,15 @@ public class LaunchDriver {
 
 		setUsername(prop.getProperty("username"));
 		System.out.println("Username :"+prop.getProperty("username"));
+	}
+	public void get_gmailFacebookusername_configFile() throws IOException
+	{
+		FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "//config.properties");
+		Properties prop = new Properties();
+		prop.load(file);
+
+		setGmail_Facebook_Username(prop.getProperty("gmail_facebook_username"));
+		System.out.println("Gmail  Username :"+prop.getProperty("gmail_facebook_username"));
 	}
 	public void get_gmail_facebok_password_configFile() throws IOException {
 		FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "//config.properties");
@@ -245,5 +267,58 @@ public class LaunchDriver {
 		      System.out.println("password changed to :"+password);
 
 		    } catch (IOException ex) {}
+	}
+	public static void setUsername_configFile(String username) {
+		Properties props = new Properties();
+		try {
+			// first load old one:
+			FileInputStream configStream = new FileInputStream(System.getProperty("user.dir") + "//config.properties");
+			props.load(configStream);
+			configStream.close();
+
+			// modifies existing or adds new property
+			props.setProperty("username", username);
+
+			// save modified property file
+			FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "//config.properties");
+			props.store(output, "This description goes to the header of a file");
+			output.close();
+			// System.out.println("password changed to :"+password);
+
+		} catch (IOException ex) {
+		}
+	}
+
+	public static String GenerateRandomString(int n) {
+
+		// chose a Character random from this String
+		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
+
+		// create StringBuffer size of AlphaNumericString
+		StringBuilder sb = new StringBuilder(n);
+
+		for (int i = 0; i < n; i++) {
+
+			// generate a random number between
+			// 0 to AlphaNumericString variable length
+			int index = (int) (AlphaNumericString.length() * Math.random());
+
+			// add Character one by one in end of sb
+			sb.append(AlphaNumericString.charAt(index));
+		}
+
+		return sb.toString();
+	}
+	
+	public static void SaveUsernameToCsvFile(String username) throws IOException {
+		
+		String csv =System.getProperty("user.dir") + "//Resources//usernames.csv";
+		CSVWriter writer = new CSVWriter(new FileWriter(csv, true));
+
+		String[] record = username.split(",");
+
+		writer.writeNext(record);
+
+		writer.close();
 	}
 }

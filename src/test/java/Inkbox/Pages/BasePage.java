@@ -141,7 +141,7 @@ public class BasePage {
 
 	public void EnterTextInsearchBox(String searchProduct) {
 
-		searchtext = searchProduct;
+		searchtext = searchProduct.toLowerCase();
 		ControlHelpers.ButtonClick(By.xpath(Search_textbox));
 		ControlHelpers.Entertext(By.xpath(Search_textbox), searchProduct);
 		try {
@@ -161,6 +161,7 @@ public class BasePage {
 		for (WebElement webElement : elements) {
 
 			String expecstring = webElement.getText();
+			expecstring=expecstring.toLowerCase();
 			if (expecstring.contains(searchtext)) {
 				test.log(LogStatus.INFO, expecstring + " : is validated");
 			} else {
@@ -321,6 +322,26 @@ public class BasePage {
 //		} else {
 //			test.log(LogStatus.PASS, "Change Password is  verified");
 //		}
+	}
+	
+	public void Verify_Emptysearch() {
+		ControlHelpers.ButtonClick(By.xpath(Search_textbox));
+		ControlHelpers.getElement(By.xpath(Search_textbox)).sendKeys(Keys.ENTER);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String URL=ControlHelpers.GetCurrentUrl();
+		if(URL.contains("https://inkbox.com/products/all-tattoos"))
+		{
+			test.log(LogStatus.PASS, "Empty Search result redirected to :"+URL);
+		}
+		else {
+			test.log(LogStatus.ERROR, "Empty Search result redirected to :"+URL);
+			Assert.fail();
+		}
 	}
 
 	public void ValidateSearchResults() {
@@ -1028,6 +1049,19 @@ public class BasePage {
 			test.log(LogStatus.PASS, "UserAccount button is visible on Navbar");
 		} else {
 			test.log(LogStatus.FAIL, "UserAccount button is not visible on Navbar");
+		}
+		int Wishlist_status=ControlHelpers.IsElementPresent(By.xpath(wishlist)); 
+		if (Wishlist_status > 0) {
+			test.log(LogStatus.PASS, "Wishlist is visible on HomePage");
+		} else {
+			test.log(LogStatus.FAIL, "Wishlist is not visible on HomePage");
+		}
+		
+		int Cart_status=ControlHelpers.IsElementPresent(By.xpath(Cart)); 
+		if (Cart_status > 0) {
+			test.log(LogStatus.PASS, "Cart is visible on HomePage");
+		} else {
+			test.log(LogStatus.FAIL, "Cart is not visible on HomePage");
 		}
 
 	}

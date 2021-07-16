@@ -120,9 +120,9 @@ public class LoginPage {
 			basePage.AcctountIcon();
 			loginPage = new LoginPage(test);
 			loginPage.ClickContinue_With_google();
-//			loginPage.EnterGoogle_MailID("testinkbox@gmail.com");
-//			loginPage.EnterGoogle_Password("Inkbox!123");
-			loginPage.EnterGoogle_MailID(LaunchDriver.getUsername());
+//			loginPage.EnterGoogle_MailID("inkboxqa@getinkbox.com");
+//			loginPage.EnterGoogle_Password("Pa55word123!!");
+			loginPage.EnterGoogle_MailID(LaunchDriver.getGmail_Facebook_Username());
 			loginPage.EnterGoogle_Password(LaunchDriver.gmail_facbook_password);
 
 		} catch (Exception e) {
@@ -142,7 +142,7 @@ public class LoginPage {
 			loginPage.ClickContinue_With_facebook();
 //			loginPage.EnterEmail_facebook("testinkbox@gmail.com");
 //			loginPage.EnterPassword_facebook("Inkbox!123");
-			loginPage.EnterEmail_facebook(LaunchDriver.getUsername());
+			loginPage.EnterEmail_facebook(LaunchDriver.getGmail_Facebook_Username());
 			loginPage.EnterPassword_facebook(LaunchDriver.gmail_facbook_password);
 			loginPage.Click_On_Login_facebook();
 

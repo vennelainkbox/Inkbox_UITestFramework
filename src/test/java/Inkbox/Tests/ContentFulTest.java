@@ -43,9 +43,11 @@ public class ContentFulTest extends LaunchDriver {
 	
 	@Test
 	public void Login() {
-		ControlHelpers.GetDriver().get("https://www.contentful.com/");
+		ControlHelpers.GetDriver().get("https://app.contentful.com/spaces/pkpedwjf5oyt/entries/qNZptxr5VNANDVrNUdmiM");
 		ContentfulPage contentfulPage=new ContentfulPage(test);
 		contentfulPage.Contentful_Login();
+		contentfulPage.Hero_Banner_validation();
 		
 	}
+
 }

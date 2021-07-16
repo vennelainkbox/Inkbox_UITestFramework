@@ -32,7 +32,11 @@ public class SignUpTest extends LaunchDriver {
 	SignUpPage signUpPage;
 
 	@Test(priority = 0)
-	public void SignUpTest() throws IOException  {
+	public void SignUp() throws IOException  {
+		String randomstring=GenerateRandomString(8);
+		String username="TestInk"+randomstring+"@gmail.com";
+		setUsername_configFile(username);
+		SaveUsernameToCsvFile(username);
 		Ads ads = new Ads(test);
 		try {
 			ads.closeAd();
@@ -43,8 +47,10 @@ public class SignUpTest extends LaunchDriver {
 		basePage = new BasePage(test);
 		basePage.AcctountIcon();
 		signUpPage=new SignUpPage(test);
-		signUpPage.EnterEmail("TestInkbox123456@gamil.com");
-		signUpPage.Enterpassword("Inkbok!123");
+//		signUpPage.EnterEmail("TestInkbox123456@gamil.com");
+//		signUpPage.Enterpassword("Inkbok!123");
+		signUpPage.EnterEmail(LaunchDriver.getUsername());
+		signUpPage.Enterpassword(LaunchDriver.getPassword());
 		test.log(LogStatus.INFO, "SignUp with credentials");
 		String path = Screenshots.takeScreenshot(getDriver(), "SighUp");
 		String imagePath = test.addScreenCapture(path);
