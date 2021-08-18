@@ -21,44 +21,51 @@ import Inkbox.Pages.ProductsPage;
 
 public class CartTest extends LaunchDriver {
 	ExtentTest test;
-	@BeforeMethod
-	public void BeforeMethod(ITestResult result) throws InterruptedException {
-
-		
-		report = ExtentFactory.getInstance();
-		System.out.println(result.getMethod().getMethodName());
-		test = report.startTest(result.getMethod().getMethodName());
-		
-	}
-	@AfterMethod
-	public void AfterMethod(ITestResult result) throws IOException
-	{
-		if (result.getStatus() == ITestResult.FAILURE) {
-			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
-			String imagePath = test.addScreenCapture(path);
-			System.out.println(result.getThrowable());
-			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
-			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
+	
+	//selecting random product from Shop page and add to cart for Guest user
+	@Test(groups = {"smoketest"})
+	public void GuestScenario_Adding_ItemsTocart() {
+		ProductsPage productspage=new ProductsPage(test);
+		productspage.numberOfproductsAdded=0;
+		productspage.selectProductRandomly_AddToCart();
+		CartPage cartpage=new CartPage(test);
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-		report.endTest(test);
-		report.flush();
+		cartpage.Click_on_KeepShoping();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		productspage.SelectsameProduct_nextTime();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		try {
+			cartpage.ValidateNumberOfItemInCart();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	@Test(priority = 0)
+	@Test(groups = {"smoketest"})
 	public void ValidateItems_Adding_To_Cart() {
 		AddingItemsTocart();
 	
 	}
 	
-	@Test(priority = 1)
+	@Test(groups = {"smoketest"})
 	public void IncreamentProduct_InCart_And_INC_145_cannot_remove_item_from_cart() {
 		AddingItemsTocart();
 	
 		CartPage cartpage = new CartPage(test);
 		cartpage.IncrementTheProductInCart();
 		cartpage.RemoveItemsFromCart();
-//		BasePage basePage=new BasePage(test);
-//		basePage.Logout();
 		int count =cartpage.VerifyCartIsEmpty();
 		if (count == 0) {
 			test.log(LogStatus.PASS, "Cart is Empty");
@@ -106,7 +113,9 @@ public class CartTest extends LaunchDriver {
 		}
 	}
 	
-	@Test(priority = 2)
+
+	
+	@Test(groups = {"smoketest"})
 	public void VerifyFreeShippingMessage() {
 		LoginPage loginPage = new LoginPage(test);
 		loginPage.UserLogin();
@@ -134,7 +143,7 @@ public class CartTest extends LaunchDriver {
 		
 	}
 	
-	@Test(priority = 3)
+	@Test(groups = {"smoketest"})
 	public void AddItemsToCart_without_Login_and_ValidateAfterLogin() {
 		Ads ads = new Ads(test);
 		try {
@@ -191,5 +200,28 @@ public class CartTest extends LaunchDriver {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@BeforeMethod(alwaysRun = true)
+	public void BeforeMethod(ITestResult result) throws InterruptedException {
+
+		
+		report = ExtentFactory.getInstance();
+		System.out.println(result.getMethod().getMethodName());
+		test = report.startTest(result.getMethod().getMethodName());
+		
+	}
+	@AfterMethod(alwaysRun = true)
+	public void AfterMethod(ITestResult result) throws IOException
+	{
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
+			String imagePath = test.addScreenCapture(path);
+			System.out.println(result.getThrowable());
+			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
+			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
+		}
+		report.endTest(test);
+		report.flush();
 	}
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -31,7 +32,11 @@ public class SignUpTest extends LaunchDriver {
 	SignUpPage signUpPage;
 
 	@Test(priority = 0)
-	public void SignUpTest() throws IOException  {
+	public void SignUp() throws IOException  {
+		String randomstring=GenerateRandomString(8);
+		String username="TestInk"+randomstring+"@gmail.com";
+		setUsername_configFile(username);
+		SaveUsernameToCsvFile(username);
 		Ads ads = new Ads(test);
 		try {
 			ads.closeAd();
@@ -42,11 +47,14 @@ public class SignUpTest extends LaunchDriver {
 		basePage = new BasePage(test);
 		basePage.AcctountIcon();
 		signUpPage=new SignUpPage(test);
-		signUpPage.EnterEmail();
-		signUpPage.Enterpassword();
+//		signUpPage.EnterEmail("TestInkbox123456@gamil.com");
+//		signUpPage.Enterpassword("Inkbok!123");
+		signUpPage.EnterEmail(LaunchDriver.getUsername());
+		signUpPage.Enterpassword(LaunchDriver.getPassword());
+		test.log(LogStatus.INFO, "SignUp with credentials");
 		String path = Screenshots.takeScreenshot(getDriver(), "SighUp");
 		String imagePath = test.addScreenCapture(path);
-		test.log(LogStatus.PASS, "Verify Welcome Text Failed", imagePath);
+		test.log(LogStatus.PASS, imagePath);
 		//$NON-NLS-N$
 	
 		signUpPage.ClickOnSignUp();
@@ -56,38 +64,37 @@ public class SignUpTest extends LaunchDriver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		test.log(LogStatus.INFO, "Clicked on SignUpButton");
 		String path2 = Screenshots.takeScreenshot(getDriver(), "SighUp");
 		String imagePath2= test.addScreenCapture(path2);
-		test.log(LogStatus.PASS, "Verify Welcome Text Failed", imagePath2);
+		test.log(LogStatus.PASS, imagePath2);
 		
+		signUpPage.ValidateSignup();
 		
 
 	}
 	
 
-	@BeforeClass
-	public void beforeClass() {
-		report = ExtentFactory.getInstance();
-		test = report.startTest("User SignUp");
-	}
+	@BeforeMethod(alwaysRun = true)
+	public void BeforeMethod(ITestResult result) throws InterruptedException {
 
-	@AfterClass
-	public void afterClass() {
+		
+		report = ExtentFactory.getInstance();
+		System.out.println(result.getMethod().getMethodName());
+		test = report.startTest(result.getMethod().getMethodName());
+		
+	}
+	@AfterMethod(alwaysRun = true)
+	public void AfterMethod(ITestResult result) throws IOException
+	{
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
+			String imagePath = test.addScreenCapture(path);
+			System.out.println(result.getThrowable());
+			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
+			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
+		}
 		report.endTest(test);
 		report.flush();
-	}
-
-	@AfterMethod
-	public void beforeTest(ITestResult testResult) throws IOException  {
-		if (testResult.getStatus() == ITestResult.FAILURE) {
-			String path = Screenshots.takeScreenshot(getDriver(), testResult.getName());
-			String imagePath = test.addScreenCapture(path);
-			//$NON-NLS-N$
-			System.out.println(testResult.getStatus());
-			test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
-		}
-	
-
 	}
 }

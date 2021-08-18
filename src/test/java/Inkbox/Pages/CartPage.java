@@ -26,6 +26,7 @@ public class CartPage {
 
 	String keep_shopping = "//div[@id='cart']/descendant::div/p[contains(text(),'Keep Shopping')]";
 	String NumberofItemsinCart = "//button[@id='cart-item-sub']/following-sibling::div";
+	String ProductSize="//div[@id=\"CartDrawer\"]/descendant::div[contains(@class,'cart-itemName')]/following-sibling::div";
 	String free_Shipping = "//*[@id=\"CartDrawer\"]/div//p/span[contains(text(),'You have free shipping')]";
 	String NoItemsInCart = "//div[@id='cart']/descendant::h3";
 	String ContinueToCheckout = "//div[@id='CartDrawer']/descendant::span[contains(text(),'Continue to Checkout')]";
@@ -161,5 +162,11 @@ public class CartPage {
 			test.log(LogStatus.ERROR, "Product is not present in cart");
 		}
 		Click_on_KeepShoping();
+	}
+	
+	public String GetProductsize() {
+		String size=ControlHelpers.getText(By.xpath(ProductSize));
+		size=size.replace("Size:", "").replace("in", "").replace(" ", "");
+		return size;
 	}
 }

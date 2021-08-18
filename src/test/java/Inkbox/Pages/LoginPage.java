@@ -80,9 +80,9 @@ public class LoginPage {
 			basePage.AcctountIcon();
 			loginPage = new LoginPage(test);
 			loginPage.ClickLogin_link();
-			loginPage.EnterEmail("testinkbox@gmail.com");
+			//loginPage.EnterEmail("testinkbox@gmail.com");
 			//loginPage.EnterPassword("Test@123");
-			//System.out.println("password :"+LaunchDriver.getPassword());
+			loginPage.EnterEmail(LaunchDriver.getUsername());
 			loginPage.EnterPassword(LaunchDriver.getPassword());
 			loginPage.ClickLoginButton();
 
@@ -93,6 +93,25 @@ public class LoginPage {
 
 	}
 	
+	public void Login() {
+		try {
+
+			basePage = new BasePage(test);
+			basePage.AcctountIcon();
+			loginPage = new LoginPage(test);
+			loginPage.ClickLogin_link();
+			//loginPage.EnterEmail("testinkbox@gmail.com");
+			//loginPage.EnterPassword("Test@123");
+			loginPage.EnterEmail(LaunchDriver.getUsername());
+			loginPage.EnterPassword(LaunchDriver.getPassword());
+			loginPage.ClickLoginButton();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.fillInStackTrace());
+		}
+	}
+	
 	public  void UserLogin_With_Google() {
 		try {
 			Ads ads = new Ads(test);
@@ -101,8 +120,10 @@ public class LoginPage {
 			basePage.AcctountIcon();
 			loginPage = new LoginPage(test);
 			loginPage.ClickContinue_With_google();
-			loginPage.EnterGoogle_MailID("testinkbox@gmail.com");
-			loginPage.EnterGoogle_Password("Inkbox!123");
+//			loginPage.EnterGoogle_MailID("inkboxqa@getinkbox.com");
+//			loginPage.EnterGoogle_Password("Pa55word123!!");
+			loginPage.EnterGoogle_MailID(LaunchDriver.getGmail_Facebook_Username());
+			loginPage.EnterGoogle_Password(LaunchDriver.gmail_facbook_password);
 
 		} catch (Exception e) {
 			System.out.println(e.fillInStackTrace());
@@ -119,8 +140,10 @@ public class LoginPage {
 			basePage.AcctountIcon();
 			loginPage = new LoginPage(test);
 			loginPage.ClickContinue_With_facebook();
-			loginPage.EnterEmail_facebook("testinkbox@gmail.com");
-			loginPage.EnterPassword_facebook("Inkbox!123");
+//			loginPage.EnterEmail_facebook("testinkbox@gmail.com");
+//			loginPage.EnterPassword_facebook("Inkbox!123");
+			loginPage.EnterEmail_facebook(LaunchDriver.getGmail_Facebook_Username());
+			loginPage.EnterPassword_facebook(LaunchDriver.gmail_facbook_password);
 			loginPage.Click_On_Login_facebook();
 
 		} catch (Exception e) {

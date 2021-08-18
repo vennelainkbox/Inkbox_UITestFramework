@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -16,6 +17,25 @@
           </reporter-output>
         </test-method> <!-- beforeTest -->
         <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.HomePageTest@2f7298b]" started-at="2021-07-08T13:30:32 EDT" name="beforeMethod" finished-at="2021-07-08T13:30:39 EDT" duration-ms="7022" status="PASS">
+=======
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-07-19T13:39:42 EDT" name="Suite" finished-at="2021-07-19T13:40:58 EDT" duration-ms="75648">
+    <groups>
+    </groups>
+    <test started-at="2021-07-19T13:39:42 EDT" name="Test" finished-at="2021-07-19T13:40:58 EDT" duration-ms="75648">
+      <class name="Inkbox.Tests.ContentFulTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:39:42 EDT" name="beforeSuite" finished-at="2021-07-19T13:39:42 EDT" duration-ms="36" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:39:42 EDT" name="beforeTest" finished-at="2021-07-19T13:39:42 EDT" duration-ms="103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String,java.lang.String)[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:39:42 EDT" name="beforeMethod" finished-at="2021-07-19T13:39:47 EDT" duration-ms="4766" status="PASS">
+>>>>>>> 9371c42d095809cbae0eb94b625c81ff88e329db
           <params>
             <param index="0">
               <value>
@@ -31,17 +51,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.HomePageTest@2f7298b]" started-at="2021-07-08T13:30:39 EDT" name="BeforeMethod" finished-at="2021-07-08T13:30:39 EDT" duration-ms="12" status="PASS">
           <params>
             <param index="0">
               <value>
                 <![CDATA[[TestResult name={null} status=CREATED method=HomePageTest.Validating_HomePage()[pri:0, instance:Inkbox.Tests.HomePageTest@2f7298b] output={null}]]]>
+=======
+        <test-method is-config="true" signature="BeforeMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:39:47 EDT" name="BeforeMethod" finished-at="2021-07-19T13:39:47 EDT" duration-ms="11" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=ContentFulTest.Verify_ShopByProduct()[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0] output={null}]]]>
+>>>>>>> 9371c42d095809cbae0eb94b625c81ff88e329db
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
+<<<<<<< HEAD
         <test-method signature="Validating_HomePage()[pri:0, instance:Inkbox.Tests.HomePageTest@2f7298b]" started-at="2021-07-08T13:30:39 EDT" name="Validating_HomePage" finished-at="2021-07-08T13:31:04 EDT" duration-ms="24359" status="PASS">
           <reporter-output>
           </reporter-output>
@@ -51,17 +80,36 @@
             <param index="0">
               <value>
                 <![CDATA[[TestResult name=Validating_HomePage status=SUCCESS method=HomePageTest.Validating_HomePage()[pri:0, instance:Inkbox.Tests.HomePageTest@2f7298b] output={null}]]]>
+=======
+        <test-method signature="Verify_ShopByProduct()[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:39:47 EDT" name="Verify_ShopByProduct" finished-at="2021-07-19T13:40:58 EDT" duration-ms="70537" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_ShopByProduct -->
+        <test-method is-config="true" signature="AfterMethod(org.testng.ITestResult)[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:40:58 EDT" name="AfterMethod" finished-at="2021-07-19T13:40:58 EDT" duration-ms="196" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Verify_ShopByProduct status=SUCCESS method=ContentFulTest.Verify_ShopByProduct()[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0] output={null}]]]>
+>>>>>>> 9371c42d095809cbae0eb94b625c81ff88e329db
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.HomePageTest@2f7298b]" started-at="2021-07-08T13:31:04 EDT" name="afterMethod" finished-at="2021-07-08T13:31:04 EDT" duration-ms="433" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- Inkbox.Tests.HomePageTest -->
+=======
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Inkbox.Tests.ContentFulTest@55b7a4e0]" started-at="2021-07-19T13:40:58 EDT" name="afterMethod" finished-at="2021-07-19T13:40:58 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Inkbox.Tests.ContentFulTest -->
+>>>>>>> 9371c42d095809cbae0eb94b625c81ff88e329db
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

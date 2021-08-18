@@ -8,17 +8,31 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="URL" value="https://inkbox.com"/>
     <classes>
+<<<<<<< HEAD
       <class name="Inkbox.Tests.HomePageTest">
         <methods>
           <include name="beforeMethod"/>
           <include name="AfterMethod"/>
           <include name="beforeSuite"/>
           <include name="Validating_HomePage"/>
+=======
+      <class name="Inkbox.Tests.ContentFulTest">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="AfterMethod"/>
+          <include name="Verify_ShopByProduct"/>
+          <include name="BeforeMethod"/>
+          <include name="beforeSuite"/>
+>>>>>>> 9371c42d095809cbae0eb94b625c81ff88e329db
           <include name="beforeTest"/>
           <include name="BeforeMethod"/>
           <include name="afterMethod"/>
         </methods>
+<<<<<<< HEAD
       </class> <!-- Inkbox.Tests.HomePageTest -->
+=======
+      </class> <!-- Inkbox.Tests.ContentFulTest -->
+>>>>>>> 9371c42d095809cbae0eb94b625c81ff88e329db
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
