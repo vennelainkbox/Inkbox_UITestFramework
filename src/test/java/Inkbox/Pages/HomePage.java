@@ -35,7 +35,7 @@ public class HomePage {
 	
 	public void Validating_JustDrop_Products() {
 		int randomNumber=ControlHelpers.getRandomNumber(4);
-		String productXpath="((//div[contains(@class,'section')]/descendant::h1[contains(text(),'Just Dropped')]/parent::div/parent::div/following-sibling::div[contains(@id,'container')]/descendant::div[@class='trayItem'])["+randomNumber+"]/descendant::a)[2]";
+		String productXpath="((//div[contains(@class,'section')]/descendant::h1[contains(text(),'Just Dropped')]/parent::div/parent::div/following-sibling::div[contains(@id,'container')]/descendant::f[@class='trayItem'])["+randomNumber+"]/descendant::a)[2]";
 		String selectedProductName=ControlHelpers.getText(By.xpath(productXpath));
 		//ControlHelpers.ButtonClick(By.xpath(productXpath));
 		ControlHelpers.JavaScriptExecutor_Button_Click(By.xpath(productXpath));

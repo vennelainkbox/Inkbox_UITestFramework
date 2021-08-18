@@ -29,8 +29,6 @@ public class LoginTest extends LaunchDriver {
 	ExtentTest test;
 	
 	
-	
-	
 
 	@Test(priority = 0)
 	public void LoginWithDirectUser() {

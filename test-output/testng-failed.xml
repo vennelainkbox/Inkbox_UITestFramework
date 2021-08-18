@@ -8,17 +8,17 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="URL" value="https://inkbox.com"/>
     <classes>
-      <class name="Inkbox.Tests.LoginTest">
+      <class name="Inkbox.Tests.HomePageTest">
         <methods>
-          <include name="LoginWithFacebook"/>
-          <include name="AfterMethod"/>
           <include name="beforeMethod"/>
+          <include name="AfterMethod"/>
           <include name="beforeSuite"/>
-          <include name="BeforeMethod"/>
+          <include name="Validating_HomePage"/>
           <include name="beforeTest"/>
+          <include name="BeforeMethod"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- Inkbox.Tests.LoginTest -->
+      </class> <!-- Inkbox.Tests.HomePageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

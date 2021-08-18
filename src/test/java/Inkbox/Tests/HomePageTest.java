@@ -28,15 +28,7 @@ public class HomePageTest extends LaunchDriver {
 	ProductsPage productspage;
 	
 	LoginPage loginPage;
-	
-//	@Test(priority = 0)
-//	public void Verify_UserImage_Changepassword() {
-//		LoginPage loginPage = new LoginPage(test);
-//		loginPage.UserLogin();
-//		BasePage basePage=new BasePage(test);
-//		basePage.VerifyUserImage_Is_Changing_Or_Not();
-//		basePage.verifyChangePassword();
-//	}
+
 	
 	
 	@Test(priority = 0)
@@ -47,13 +39,7 @@ public class HomePageTest extends LaunchDriver {
 		basePage.verifyChangePassword();
 	}
 	
-//	@Test
-//	public void UserImageChangingOrNot() throws AWTException, InterruptedException {
-//		LoginPage loginPage = new LoginPage(test);
-//		loginPage.UserLogin();
-//		BasePage basePage=new BasePage(test);
-//		basePage.VerifyUserImage_Is_Changing_Or_Not();
-//	}
+
 	 
 	@Test(priority = 1)
 	public void Verify_Display_of_Products_on_Homepage() {
@@ -77,6 +63,16 @@ public class HomePageTest extends LaunchDriver {
 		loginPage.UserLogin();
 		HomePage homePage=new HomePage(test);
 		homePage.ValidatePopularCategories();
+	}
+	@Test(priority = 4)
+	public void Validating_HomePage() {
+		LoginPage loginPage = new LoginPage(test);
+		loginPage.UserLogin();
+		BasePage basePage=new BasePage(test);
+		basePage.Vadidating_Header();
+		basePage.Validating_NavBar();
+		basePage.Validating_MenuItems();
+		
 	}
 	
 	@BeforeMethod
