@@ -21,27 +21,36 @@ import Inkbox.Pages.ProductsPage;
 
 public class CartTest extends LaunchDriver {
 	ExtentTest test;
-	@BeforeMethod(alwaysRun = true)
-	public void BeforeMethod(ITestResult result) throws InterruptedException {
-
-		
-		report = ExtentFactory.getInstance();
-		System.out.println(result.getMethod().getMethodName());
-		test = report.startTest(result.getMethod().getMethodName());
-		
-	}
-	@AfterMethod(alwaysRun = true)
-	public void AfterMethod(ITestResult result) throws IOException
-	{
-		if (result.getStatus() == ITestResult.FAILURE) {
-			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
-			String imagePath = test.addScreenCapture(path);
-			System.out.println(result.getThrowable());
-			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
-			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
+	
+	//selecting random product from Shop page and add to cart for Guest user
+	@Test(groups = {"smoketest"})
+	public void GuestScenario_Adding_ItemsTocart() {
+		ProductsPage productspage=new ProductsPage(test);
+		productspage.numberOfproductsAdded=0;
+		productspage.selectProductRandomly_AddToCart();
+		CartPage cartpage=new CartPage(test);
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-		report.endTest(test);
-		report.flush();
+		cartpage.Click_on_KeepShoping();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		productspage.SelectsameProduct_nextTime();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		try {
+			cartpage.ValidateNumberOfItemInCart();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test(groups = {"smoketest"})
@@ -103,6 +112,8 @@ public class CartTest extends LaunchDriver {
 			test.log(LogStatus.PASS, "Total is not visible after cart is emplty");
 		}
 	}
+	
+
 	
 	@Test(groups = {"smoketest"})
 	public void VerifyFreeShippingMessage() {
@@ -189,5 +200,28 @@ public class CartTest extends LaunchDriver {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@BeforeMethod(alwaysRun = true)
+	public void BeforeMethod(ITestResult result) throws InterruptedException {
+
+		
+		report = ExtentFactory.getInstance();
+		System.out.println(result.getMethod().getMethodName());
+		test = report.startTest(result.getMethod().getMethodName());
+		
+	}
+	@AfterMethod(alwaysRun = true)
+	public void AfterMethod(ITestResult result) throws IOException
+	{
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String path = Screenshots.takeScreenshot(getDriver(), result.getName());
+			String imagePath = test.addScreenCapture(path);
+			System.out.println(result.getThrowable());
+			test.log(LogStatus.FAIL,result.getThrowable().toString(),imagePath);
+			//test.log(LogStatus.FAIL, "Verify Welcome Text Failed", imagePath);
+		}
+		report.endTest(test);
+		report.flush();
 	}
 }

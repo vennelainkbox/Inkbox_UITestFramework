@@ -8,19 +8,19 @@
 	</listeners>
 
 	<test thread-count="5" name="Test" preserve-order="true">
- <!-- chrome -->
-  <!-- opera -->
+		<!-- chrome -->
+		<!-- opera -->
 
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="URL" value="https://inkbox.com"></parameter>
 		<classes>
-			<class name="Inkbox.Tests.ProductSearchTest">
+			<class name="Inkbox.Tests.ContentFulTest">
 				<methods>
-					<include name="EmptySearchBox_Validation"></include>
+					<include name="Verify_ShopByProduct"></include>
 
 				</methods>
 			</class>
-		
+
 		</classes>
 	</test> <!-- Test -->
 

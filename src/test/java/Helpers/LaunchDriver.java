@@ -120,8 +120,8 @@ public class LaunchDriver {
 
 	@AfterMethod(alwaysRun = true)
 	public void afterMethod() {
-		driver.close();
-		driver.quit();
+//		driver.close();
+//		driver.quit();
 
 	}
 

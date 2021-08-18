@@ -12,8 +12,8 @@
         <methods>
           <include name="beforeMethod"/>
           <include name="AfterMethod"/>
+          <include name="Verify_ShopByProduct"/>
           <include name="BeforeMethod"/>
-          <include name="Login"/>
           <include name="beforeSuite"/>
           <include name="beforeTest"/>
           <include name="afterMethod"/>

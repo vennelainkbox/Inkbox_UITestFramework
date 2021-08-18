@@ -61,7 +61,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>1 group</span>
+                    <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Inkbox.Tests.ProductSearchTest" class="method navigator-link" hash-for-method="EmptySearchBox_Validation">EmptySearchBox_Validation</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="Inkbox.Tests.ContentFulTest" class="method navigator-link" hash-for-method="Verify_ShopByProduct">Verify_ShopByProduct</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -122,14 +122,14 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">Inkbox.Tests.ProductSearchTest</span>
+              <span class="class-name">Inkbox.Tests.ContentFulTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="EmptySearchBox_Validation">
-                  </a> <!-- EmptySearchBox_Validation -->
-                  <span class="method-name">EmptySearchBox_Validation</span>
+                  <a name="Verify_ShopByProduct">
+                  </a> <!-- Verify_ShopByProduct -->
+                  <span class="method-name">Verify_ShopByProduct</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -151,11 +151,11 @@
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;parameter name=&quot;URL&quot; value=&quot;https://inkbox.com&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Inkbox.Tests.ProductSearchTest&quot;&gt;
+      &lt;class name=&quot;Inkbox.Tests.ContentFulTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;EmptySearchBox_Validation&quot;/&gt;
+          &lt;include name=&quot;Verify_ShopByProduct&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- Inkbox.Tests.ProductSearchTest --&gt;
+      &lt;/class&gt; &lt;!-- Inkbox.Tests.ContentFulTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -179,14 +179,6 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="test-group">
-              <span class="test-group-name">smoketest</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">EmptySearchBox_Validation</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -205,14 +197,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'EmptySearchBox_Validation')
-data.setCell(0, 2, 'Inkbox.Tests.ProductSearchTest')
-data.setCell(0, 3, 26699);
+data.setCell(0, 1, 'Verify_ShopByProduct')
+data.setCell(0, 2, 'Inkbox.Tests.ContentFulTest')
+data.setCell(0, 3, 70537);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -227,29 +219,13 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">9 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">Inkbox.Tests.ProductSearchTest</span>
+              <span class="ignored-class-name">Inkbox.Tests.ContentFulTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">Autosuggestion_Validation</span>
-                <br/>
-                <span class="ignored-method-name">SearchResults_Validation</span>
-                <br/>
-                <span class="ignored-method-name">SortByPriceHighToLow</span>
-                <br/>
-                <span class="ignored-method-name">Autosuggestion_Validation_Negative</span>
-                <br/>
-                <span class="ignored-method-name">Verify_SearchResults</span>
-                <br/>
-                <span class="ignored-method-name">SortByPriceLowToHigh</span>
-                <br/>
-                <span class="ignored-method-name">ValidatePricingBlock</span>
-                <br/>
-                <span class="ignored-method-name">FilterBySize</span>
-                <br/>
-                <span class="ignored-method-name">ValidatePresentUrl_with_PreviousUrl</span>
+                <span class="ignored-method-name">Verify_ShopBySection</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -261,34 +237,34 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Inkbox.Tests.ProductSearchTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Inkbox.Tests.ContentFulTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">beforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">45 ms</span>
+                <span class="method-start">39 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod(chrome, https://inkbox.com)</span>
-                <span class="method-start">146 ms</span>
+                <span class="method-start">162 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">BeforeMethod([TestResult name={null} status=CREATED method=ProductSearchTest.EmptySearchBox_Validation()[pri:0, i...)</span>
-                <span class="method-start">6544 ms</span>
+                <span class="method-name">BeforeMethod([TestResult name={null} status=CREATED method=ContentFulTest.Verify_ShopByProduct()[pri:0, instance:...)</span>
+                <span class="method-start">4931 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">EmptySearchBox_Validation</span>
-                <span class="method-start">6556 ms</span>
+                <span class="method-name">Verify_ShopByProduct</span>
+                <span class="method-start">4943 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">AfterMethod([TestResult name=EmptySearchBox_Validation status=SUCCESS method=ProductSearchTest.EmptySearchBox_Va...)</span>
-                <span class="method-start">33257 ms</span>
+                <span class="method-name">AfterMethod([TestResult name=Verify_ShopByProduct status=SUCCESS method=ContentFulTest.Verify_ShopByProduct()[pr...)</span>
+                <span class="method-start">75487 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">33411 ms</span>
+                <span class="method-start">75684 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

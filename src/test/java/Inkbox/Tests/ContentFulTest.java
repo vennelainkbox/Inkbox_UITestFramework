@@ -42,12 +42,19 @@ public class ContentFulTest extends LaunchDriver {
 	}
 	
 	@Test
-	public void Login() {
+	public void Verify_ShopBySection() {
 		ControlHelpers.GetDriver().get("https://app.contentful.com/spaces/pkpedwjf5oyt/entries/qNZptxr5VNANDVrNUdmiM");
 		ContentfulPage contentfulPage=new ContentfulPage(test);
 		contentfulPage.Contentful_Login();
-		contentfulPage.Hero_Banner_validation();
-		
+	//	contentfulPage.Hero_Banner_validation();
+		contentfulPage.ShopBySection_Validation();
+	}
+	@Test
+	public void Verify_ShopByProduct() {
+		ControlHelpers.GetDriver().get("https://app.contentful.com/spaces/pkpedwjf5oyt/entries/qNZptxr5VNANDVrNUdmiM");
+		ContentfulPage contentfulPage=new ContentfulPage(test);
+		contentfulPage.Contentful_Login();
+		contentfulPage.ShopByProduct_Validation();
 	}
 
 }
